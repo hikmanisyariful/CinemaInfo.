@@ -5,6 +5,12 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
+/* Import font-family : poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&display=swap");
+
+/* import _colorVariables.scss */
+@import "colorVariables";
+
 // scss-docs-start import-stack
 // Configuration
 @import "functions";
@@ -51,3 +57,21 @@
 // Utilities
 @import "utilities/api";
 // scss-docs-end import-stack
+
+// Custom scss
+// Style Brand Icon Text
+.brand-text-icon {
+  font-size: 1.625rem;
+  font-weight: 600;
+  color: $yellow;
+  text-decoration: none;
+
+  span {
+    color: $red;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: $yellow; // Mencegah logo ketika dihover tidak berubah warna
+  }
+}
