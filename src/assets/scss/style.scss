@@ -58,6 +58,9 @@
 @import "utilities/api";
 // scss-docs-end import-stack
 
+/* Import custom scss */
+@import "container-grid.scss";
+
 // Custom scss
 // Style Brand Icon Text
 .brand-text-icon {
@@ -73,5 +76,45 @@
   &:hover {
     text-decoration: none;
     color: $yellow; // Mencegah logo ketika dihover tidak berubah warna
+  }
+}
+
+// Style Header
+header {
+  width: 100%;
+  position: relative;
+  margin-bottom: 50px;
+
+  .navbar {
+    height: 80px;
+
+    .collapse {
+      margin-left: 70px;
+    }
+
+    ul.navbar-nav {
+      li.nav-item {
+        &.active {
+          a.nav-link {
+            color: $primary;
+            font-weight: 600;
+          }
+        }
+
+        a {
+          &.nav-link {
+            color: $white;
+            padding-left: 1rem;
+            padding-right: 2rem;
+            font-size: 1.125rem;
+            letter-spacing: 0.5px;
+
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+    }
   }
 }
