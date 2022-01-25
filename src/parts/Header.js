@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Button from "elements/Button";
 import IconText from "parts/IconText";
+import { FaBars } from "react-icons/fa";
 
 import IconSearch from "assets/images/icons/icon-search.svg";
 import IconProfile from "assets/images/icons/profile.svg";
 
-export default function Header() {
+export default function Header({ toggle }) {
   const [scrollNav, setScrollNav] = useState(false);
 
   const changeNav = () => {
@@ -32,8 +33,10 @@ export default function Header() {
       <div className="container">
         <nav className="navbar navbar-expand-lg navbar-light">
           <IconText />
-
-          <div className="collapse navbar-collapse">
+          <div className="icon-wrapper" onClick={toggle}>
+            <FaBars />
+          </div>
+          <div className="collapse navbar-collapse main-navbar">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
                 <Button className="nav-link" type="link" href="/">
@@ -58,7 +61,7 @@ export default function Header() {
             </ul>
           </div>
 
-          <div className="d-flex">
+          <div className="main-navbar">
             <ul className="navbar-nav icon">
               <li className="nav-item">
                 <Button className="nav-icon" type="link" href="/search">

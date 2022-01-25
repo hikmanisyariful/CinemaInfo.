@@ -61,6 +61,11 @@
 /* Import custom scss */
 @import "container-grid.scss";
 
+/* Grid-Breakpoints custom */
+$small: 576px;
+$medium: 868px;
+$large: 992px;
+
 // Custom scss
 // Style Brand Icon Text
 .brand-text-icon {
@@ -76,6 +81,10 @@
   &:hover {
     text-decoration: none;
     color: $yellow; // Mencegah logo ketika dihover tidak berubah warna
+  }
+
+  @media screen and (max-width: $small) {
+    font-size: 1.5rem;
   }
 }
 
@@ -93,8 +102,41 @@ header {
   // Dynamically update SCSS
   background-color: var(--background-color);
 
+  @media screen and (max-width: $small) {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+
   .navbar {
+    position: relative;
     height: 80px;
+
+    @media screen and (max-width: $small) {
+      margin-left: 10px;
+    }
+
+    .icon-wrapper {
+      display: none;
+
+      @media screen and (max-width: $small) {
+        display: var(--display-faBars);
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(-50%, 30%);
+        font-size: 1.8rem;
+        cursor: pointer;
+        color: $white;
+      }
+    }
+
+    .main-navbar,
+    .left-navbar {
+      display: flex;
+
+      @media screen and (max-width: $small) {
+        display: none;
+      }
+    }
 
     .collapse {
       margin-left: 70px;
@@ -144,6 +186,72 @@ header {
                 font-size: 1.125rem;
               }
               text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Style Sidebar
+aside {
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: grid;
+  align-items: center;
+  top: 0;
+  left: 0;
+  transition: 0.3s ease-in-out;
+  opacity: var(--opacity-sidebar);
+  top: var(--top-sidebar);
+
+  .icon-wrapper {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.5rem;
+    background: transparent;
+    border: transparent;
+    font-size: 2rem;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .sidebar-wrapper {
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    ul.sidebar-menu {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(6, 60px);
+      text-align: center;
+      margin: 0;
+      padding: 0;
+
+      li.sidebar-link {
+        text-decoration: none;
+        list-style: none;
+
+        a {
+          &.nav-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            transition: 0.2s ease-in-out;
+            color: $white;
+            cursor: pointer;
+
+            &:hover {
+              color: $yellow;
+              transition: 0.2s ease-in-out;
             }
           }
         }

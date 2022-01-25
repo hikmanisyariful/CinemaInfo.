@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import "assets/scss/style.scss";
 
@@ -12,11 +12,26 @@ import Profile from "pages/Profile";
 
 // Import Component parts
 import Header from "parts/Header";
+import Sidebar from "parts/Sidebar";
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => {
+    setIsOpen(!isOpen);
+  };
+
+  useEffect(() => {
+    // Dynamically Update SCSS for Sidebar
+    const root = document.documentElement;
+    root?.style.setProperty("--opacity-sidebar", isOpen ? "100%" : "0");
+    root?.style.setProperty("--top-sidebar", isOpen ? "0" : "-100%");
+    root?.style.setProperty("--display-faBars", isOpen ? "none" : "block");
+  }, [isOpen]);
+
   return (
     <div className="App">
-      <Header />
+      <Header toggle={toggle} />
+      <Sidebar toggle={toggle} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/topMovies" element={<TopMovies />} />
