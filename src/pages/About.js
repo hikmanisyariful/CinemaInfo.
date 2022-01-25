@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function Home() {
+export default function About() {
   return (
     <div className="pages-test">
-      <h2>HOME PAGE</h2>
+      <h2>ABOUT PAGE</h2>
     </div>
   );
 }

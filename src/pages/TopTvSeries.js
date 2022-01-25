@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function Home() {
+export default function TopTvSeries() {
   return (
     <div className="pages-test">
-      <h2>HOME PAGE</h2>
+      <h2>TOP TV SERIES PAGE</h2>
     </div>
   );
 }

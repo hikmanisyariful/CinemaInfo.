@@ -82,8 +82,16 @@
 // Style Header
 header {
   width: 100%;
-  position: relative;
-  margin-bottom: 50px;
+  // margin-bottom: 50px;
+
+  // Style header fixed
+  position: sticky;
+  z-index: 999;
+  margin-top: -80px;
+  top: 0;
+
+  // Dynamically update SCSS
+  background-color: var(--background-color);
 
   .navbar {
     height: 80px;
@@ -104,8 +112,8 @@ header {
         a {
           &.nav-link {
             color: $white;
-            padding-left: 1rem;
-            padding-right: 2rem;
+            margin-left: 1rem;
+            margin-right: 2rem;
             font-size: 1.125rem;
             letter-spacing: 0.5px;
 
@@ -116,5 +124,37 @@ header {
         }
       }
     }
+
+    ul.navbar-nav.icon {
+      li.nav-item {
+        .text-icon {
+          display: none;
+        }
+        a {
+          &.nav-icon {
+            margin-left: 2rem;
+            margin-right: 1rem;
+
+            &:hover {
+              .text-icon {
+                display: inline;
+                // transition: 5s transform ease-in-out;
+                color: $white;
+                padding-left: 10px;
+                font-size: 1.125rem;
+              }
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
   }
+}
+
+// Style Pages
+.pages-test {
+  padding-top: 80px;
+  // background-color: $gray-700;
+  height: 2000px;
 }
