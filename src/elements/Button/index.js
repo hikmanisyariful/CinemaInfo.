@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-export default function Button() {
+export default function Button(props) {
   // Setup className
   const className = [props.className];
   if (props.isPrimary) className.push("btn-primary");
