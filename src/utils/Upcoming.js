@@ -724,6 +724,6 @@ const results = [
 
 export default function _getUpcoming() {
   return new Promise((res, rej) => {
-    setTimeout(() => res({ ...results }), 500);
+    setTimeout(() => res(results), 500);
   });
 }
