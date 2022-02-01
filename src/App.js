@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 import "assets/scss/style.scss";
+import { handleInitialData } from "./actions/shared";
 
 // Import Pages
 import Home from "pages/Home";
@@ -15,18 +17,23 @@ import Header from "parts/Header";
 import Sidebar from "parts/Sidebar";
 
 function App() {
+  const dispatch = useDispatch();
+
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => {
     setIsOpen(!isOpen);
   };
 
   useEffect(() => {
+    // Dispatch Handle Initial Data to Redux
+    dispatch(handleInitialData());
+
     // Dynamically Update SCSS for Sidebar
     const root = document.documentElement;
     root?.style.setProperty("--opacity-sidebar", isOpen ? "100%" : "0");
     root?.style.setProperty("--top-sidebar", isOpen ? "0" : "-100%");
     root?.style.setProperty("--display-faBars", isOpen ? "none" : "block");
-  }, [isOpen]);
+  }, [isOpen, dispatch]);
 
   return (
     <div className="App">
@@ -39,6 +46,14 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/search" element={<Search />} />
         <Route path="/profile" element={<Profile />} />
+        <Route
+          path="*"
+          element={
+            <main style={{ padding: "1rem", marginTop: "80px" }}>
+              <p>There's nothing here!</p>
+            </main>
+          }
+        />
       </Routes>
     </div>
   );

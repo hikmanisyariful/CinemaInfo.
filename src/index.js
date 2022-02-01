@@ -6,9 +6,19 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
+// Setup redux
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import reducer from "./reducers";
+import middleware from "./middleware";
+
+const store = createStore(reducer, middleware);
+
 ReactDOM.render(
   <BrowserRouter>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </BrowserRouter>,
   document.getElementById("root")
 );
