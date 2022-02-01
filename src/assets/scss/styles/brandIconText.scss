@@ -1,0 +1,20 @@
+// Style Brand Icon Text
+.brand-text-icon {
+  font-size: 1.625rem;
+  font-weight: 600;
+  color: $yellow;
+  text-decoration: none;
+
+  span {
+    color: $red;
+  }
+
+  &:hover {
+    text-decoration: none;
+    color: $yellow; // Mencegah logo ketika dihover tidak berubah warna
+  }
+
+  @media screen and (max-width: $small) {
+    font-size: 1.5rem;
+  }
+}
