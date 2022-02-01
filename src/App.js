@@ -25,7 +25,6 @@ function App() {
   };
 
   useEffect(() => {
-    // Dispatch Handle Initial Data to Redux
     dispatch(handleInitialData());
 
     // Dynamically Update SCSS for Sidebar
