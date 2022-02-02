@@ -20,16 +20,29 @@ async function getHeroData() {
 
     // GET ID Movie from IMDb
     const getMovieIMDb = await axios.get(
-      `https://imdb-api.com/en/API/SearchMovie/k_1y2hx2b3/${topMovie.title}`
+      `https://imdb-api.com/en/API/SearchMovie/k_zj0gxvlc/${topMovie.title}`
     );
     let idMovieIMDb = getMovieIMDb.data.results[0].id;
 
     // GET Data Detail Movie from IMDb
     const dataMovie = await axios.get(
-      `https://imdb-api.com/en/API/Title/k_1y2hx2b3/${idMovieIMDb}/Images,Trailer,Ratings,Wikipedia,`
+      `https://imdb-api.com/en/API/Title/k_zj0gxvlc/${idMovieIMDb}/Images,Trailer,Ratings,Wikipedia,`
     );
 
-    return dataMovie.data;
+    const data = {
+      id: dataMovie.data.id,
+      title: dataMovie.data.title,
+      plot: dataMovie.data.plot,
+      thumbnailURL: dataMovie.data.trailer.thumbnailUrl,
+      linkEmbed: dataMovie.data.trailer.linkEmbed,
+      duration: dataMovie.data.runtimeStr,
+      year: dataMovie.data.year,
+      casts: dataMovie.data.stars,
+      genres: dataMovie.data.genres,
+      rating: dataMovie.data.imDbRating
+    };
+
+    return data;
   } catch (error) {
     console.log("===========", error);
   }
@@ -39,12 +52,12 @@ async function getHeroData() {
 async function getIdRate(movie) {
   // Get ID Movies
   const id = await axios.get(
-    `https://imdb-api.com/en/API/SearchMovie/k_1y2hx2b3/${movie.title}`
+    `https://imdb-api.com/en/API/SearchMovie/k_zj0gxvlc/${movie.title}`
   );
 
   // Get Rating Movies
   const rating = await axios.get(
-    `https://imdb-api.com/en/API/Ratings/k_1y2hx2b3/${id.data.results[0].id}`
+    `https://imdb-api.com/en/API/Ratings/k_zj0gxvlc/${id.data.results[0].id}`
   );
 
   let data = {
@@ -54,6 +67,18 @@ async function getIdRate(movie) {
     rate: rating.data.imDb
   };
 
+  return data;
+}
+
+function sortDataMovies(movies) {
+  const data = movies.reduce((acc, curr) => {
+    if (curr && curr.status === "fulfilled") {
+      if (curr.value.title !== null) {
+        acc.push(curr.value);
+      }
+    }
+    return acc;
+  }, []);
   return data;
 }
 
@@ -67,31 +92,13 @@ async function getTrendingMovies() {
 
     const IdMoviesByIMDb = moviesTrending.map(movie => getIdRate(movie));
     const results = await Promise.allSettled(IdMoviesByIMDb);
+    const data = sortDataMovies(results);
 
     return results;
   } catch (error) {
     console.log(error);
   }
 }
-
-// async function getCategoriesMovies() {
-//   // Get Now Playing movies
-//   const moviesNowPlayingTixId = await getDataNowplaying();
-//   const moviesNowPlayingLoop = moviesNowPlayingTixId.map(movie =>
-//     getIdRate(movie)
-//   );
-//   const moviesNowPlaying = await Promise.allSettled(moviesNowPlayingLoop);
-
-//   // Get Upcoming movies
-//   const moviesUpcomingTixId = await getDataUpcoming();
-//   const moviesUpcomingLoop = moviesUpcomingTixId.map(movie => getIdRate(movie));
-//   const moviesUpcoming = await Promise.allSettled(moviesUpcomingLoop);
-
-//   return {
-//     moviesNowPlaying,
-//     moviesUpcoming
-//   };
-// }
 
 async function getNowPlayingMovies() {
   // Get Now Playing movies
@@ -100,9 +107,7 @@ async function getNowPlayingMovies() {
     getIdRate(movie)
   );
   const moviesNowPlaying = await Promise.allSettled(moviesNowPlayingLoop);
-  const data = moviesNowPlaying.filter(
-    movie => movie.status === "fulfilled" && movie.value
-  );
+  const data = sortDataMovies(moviesNowPlaying);
 
   return data;
 }
@@ -112,9 +117,7 @@ async function getUpcomingMovies() {
   const moviesUpcomingTixId = await getDataUpcoming();
   const moviesUpcomingLoop = moviesUpcomingTixId.map(movie => getIdRate(movie));
   const moviesUpcoming = await Promise.allSettled(moviesUpcomingLoop);
-  const data = moviesUpcoming.filter(
-    movie => movie.status === "fulfilled" && movie.value
-  );
+  const data = sortDataMovies(moviesUpcoming);
 
   return data;
 }
