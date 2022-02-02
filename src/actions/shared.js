@@ -20,19 +20,41 @@ async function getHeroData() {
 
     // GET ID Movie from IMDb
     const getMovieIMDb = await axios.get(
-      `https://imdb-api.com/en/API/SearchMovie/k_m8a8f7lf/${topMovie.title}`
+      `https://imdb-api.com/en/API/SearchMovie/k_1y2hx2b3/${topMovie.title}`
     );
     let idMovieIMDb = getMovieIMDb.data.results[0].id;
 
     // GET Data Detail Movie from IMDb
     const dataMovie = await axios.get(
-      `https://imdb-api.com/en/API/Title/k_m8a8f7lf/${idMovieIMDb}/Images,Trailer,Ratings,Wikipedia,`
+      `https://imdb-api.com/en/API/Title/k_1y2hx2b3/${idMovieIMDb}/Images,Trailer,Ratings,Wikipedia,`
     );
 
     return dataMovie.data;
   } catch (error) {
     console.log("===========", error);
   }
+}
+
+// Get ID Movies and Rate asynchronously with map method
+async function getIdRate(movie) {
+  // Get ID Movies
+  const id = await axios.get(
+    `https://imdb-api.com/en/API/SearchMovie/k_1y2hx2b3/${movie.title}`
+  );
+
+  // Get Rating Movies
+  const rating = await axios.get(
+    `https://imdb-api.com/en/API/Ratings/k_1y2hx2b3/${id.data.results[0].id}`
+  );
+
+  let data = {
+    id: id.data.results[0].id,
+    image: id.data.results[0].image,
+    title: rating.data.title,
+    rate: rating.data.imDb
+  };
+
+  return data;
 }
 
 async function getTrendingMovies() {
@@ -43,30 +65,8 @@ async function getTrendingMovies() {
     );
     const moviesTrending = getMoviesTrending.data.results;
 
-    // Get ID Movies and Rate asynchronously with map method
-    async function getIdRate(movie) {
-      // Get ID Movies
-      const id = await axios.get(
-        `https://imdb-api.com/en/API/SearchMovie/k_m8a8f7lf/${movie.title}`
-      );
-
-      // Get Rating Movies
-      const rating = await axios.get(
-        `https://imdb-api.com/en/API/Ratings/k_m8a8f7lf/${id.data.results[0].id}`
-      );
-
-      let data = {
-        id: id.data.results[0].id,
-        image: id.data.results[0].image,
-        title: rating.data.title,
-        rate: rating.data.imDb
-      };
-
-      return data;
-    }
-
     const IdMoviesByIMDb = moviesTrending.map(movie => getIdRate(movie));
-    const results = await Promise.all(IdMoviesByIMDb);
+    const results = await Promise.allSettled(IdMoviesByIMDb);
 
     return results;
   } catch (error) {
@@ -74,14 +74,49 @@ async function getTrendingMovies() {
   }
 }
 
-async function getCategoriesMovies() {
-  const moviesNowPlaying = await getDataNowplaying();
-  const moviesUpcoming = await getDataUpcoming();
+// async function getCategoriesMovies() {
+//   // Get Now Playing movies
+//   const moviesNowPlayingTixId = await getDataNowplaying();
+//   const moviesNowPlayingLoop = moviesNowPlayingTixId.map(movie =>
+//     getIdRate(movie)
+//   );
+//   const moviesNowPlaying = await Promise.allSettled(moviesNowPlayingLoop);
 
-  return {
-    moviesNowPlaying,
-    moviesUpcoming
-  };
+//   // Get Upcoming movies
+//   const moviesUpcomingTixId = await getDataUpcoming();
+//   const moviesUpcomingLoop = moviesUpcomingTixId.map(movie => getIdRate(movie));
+//   const moviesUpcoming = await Promise.allSettled(moviesUpcomingLoop);
+
+//   return {
+//     moviesNowPlaying,
+//     moviesUpcoming
+//   };
+// }
+
+async function getNowPlayingMovies() {
+  // Get Now Playing movies
+  const moviesNowPlayingTixId = await getDataNowplaying();
+  const moviesNowPlayingLoop = moviesNowPlayingTixId.map(movie =>
+    getIdRate(movie)
+  );
+  const moviesNowPlaying = await Promise.allSettled(moviesNowPlayingLoop);
+  const data = moviesNowPlaying.filter(
+    movie => movie.status === "fulfilled" && movie.value
+  );
+
+  return data;
+}
+
+async function getUpcomingMovies() {
+  // Get Upcoming movies
+  const moviesUpcomingTixId = await getDataUpcoming();
+  const moviesUpcomingLoop = moviesUpcomingTixId.map(movie => getIdRate(movie));
+  const moviesUpcoming = await Promise.allSettled(moviesUpcomingLoop);
+  const data = moviesUpcoming.filter(
+    movie => movie.status === "fulfilled" && movie.value
+  );
+
+  return data;
 }
 
 export function handleInitialData() {
@@ -93,17 +128,24 @@ export function handleInitialData() {
       })
       .then(data => {
         dispatch(receiveDataTrending({ label: "trending", data }));
-        return getCategoriesMovies();
+        return getNowPlayingMovies();
       })
       .then(data => {
         dispatch(
           receiveDataNowPlaying({
             label: "nowPlaying",
-            data: data.moviesNowPlaying
+            data: data
           })
         );
+
+        return getUpcomingMovies();
+      })
+      .then(data => {
         dispatch(
-          receiveDataUpcoming({ label: "upcoming", data: data.moviesUpcoming })
+          receiveDataUpcoming({
+            label: "upcoming",
+            data: data
+          })
         );
       });
   };
