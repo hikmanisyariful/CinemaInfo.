@@ -1,3 +1,4 @@
+/*
 import { getDataNowplaying, getDataUpcoming } from "utils/api";
 import {
   receiveDataHero,
@@ -6,6 +7,7 @@ import {
   receiveDataUpcoming
 } from "actions/homePages";
 import axios from "axios";
+
 
 async function getHeroData() {
   try {
@@ -122,6 +124,7 @@ async function getUpcomingMovies() {
   return data;
 }
 
+
 export function handleInitialData() {
   return dispatch => {
     return getHeroData()
@@ -140,7 +143,6 @@ export function handleInitialData() {
             data: data
           })
         );
-
         return getUpcomingMovies();
       })
       .then(data => {
@@ -153,3 +155,5 @@ export function handleInitialData() {
       });
   };
 }
+
+*/

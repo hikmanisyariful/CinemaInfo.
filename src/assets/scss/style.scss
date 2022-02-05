@@ -8,6 +8,8 @@
 /* Import font-family : poppins */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&display=swap");
 
+// @import "~video-react/styles/scss/video-react";
+
 /* import _colorVariables.scss */
 @import "colorVariables";
 
@@ -70,11 +72,53 @@ $large: 992px;
 @import "styles/header.scss";
 @import "styles/sidebar.scss";
 @import "styles/brandIconText.scss";
-@import "styles/heroPart.scss";
+@import "styles/hero.scss";
 
 // Style Pages
 .pages-test {
   // padding-top: 80px;
   // background-color: $gray-700;
   height: 2000px;
+}
+
+.button-primary {
+  width: 196px;
+  height: 50px;
+  left: 120px;
+  top: 605px;
+
+  background: #fffefe;
+  border-radius: 5px;
+
+  color: $black;
+
+  margin-right: 30px;
+
+  &:hover {
+    color: $white;
+    background: rgba(0, 0, 0, 0.5) 0%;
+    border: 1px solid white;
+  }
+}
+
+.button-secondary {
+  width: 216px;
+  height: 50px;
+  left: 340px;
+  top: 605px;
+
+  background: #4b4b4b;
+  border-radius: 5px;
+
+  &:hover {
+    border: 1px solid white;
+    background: rgba(0, 0, 0, 0.5) 0%;
+  }
+}
+
+.fill-wrap {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0 20px;
 }

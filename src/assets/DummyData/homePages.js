@@ -78,13 +78,6 @@ export const homePages = {
       rate: "7.6"
     },
     {
-      id: "tt11847410",
-      image:
-        "https://imdb-api.com/images/original/MV5BMjM2MTg0M…yXkFqcGdeQXVyMTM1MTE1NDMx._V1_Ratio0.7273_AL_.jpg",
-      title: null,
-      rate: null
-    },
-    {
       id: "tt11214590",
       image:
         "https://imdb-api.com/images/original/MV5BYzdlMTMyZ…yXkFqcGdeQXVyMTMzNDE5NDM2._V1_Ratio0.7273_AL_.jpg",
@@ -309,7 +302,6 @@ export const homePages = {
       title: "Sword Art Online: Progressive - Aria of a Starless Night",
       rate: "7.4"
     },
-    undefined,
     {
       id: "tt3758814",
       image:
@@ -319,7 +311,6 @@ export const homePages = {
     }
   ],
   upcoming: [
-    undefined,
     {
       id: "tt5834426",
       image:
@@ -355,7 +346,6 @@ export const homePages = {
       title: "Death on the Nile",
       rate: ""
     },
-    undefined,
     {
       id: "tt10223460",
       image:
@@ -390,13 +380,6 @@ export const homePages = {
         "https://imdb-api.com/images/original/MV5BY2ViYmNhN…yXkFqcGdeQXVyMDA4NzMyOA@@._V1_Ratio0.7273_AL_.jpg",
       title: "Blacklight",
       rate: ""
-    },
-    {
-      id: "tt13445076",
-      image:
-        "https://imdb-api.com/images/original/MV5BNzQ5Y2Y5N…yXkFqcGdeQXVyNTYwNjQzMjI@._V1_Ratio0.7273_AL_.jpg",
-      title: null,
-      rate: null
     },
     {
       id: "tt6017756",
