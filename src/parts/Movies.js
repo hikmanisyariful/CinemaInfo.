@@ -44,7 +44,7 @@ export default function Movies({ movies, label }) {
                   style={{ width: "100%" }}
                 >
                   <img
-                    src="https://imdb-api.com/images/original/MV5BZWMyYzFjYTYtNTRjYi00OGExLWE2YzgtOGRmYjAxZTU3NzBiXkEyXkFqcGdeQXVyMzQ0MzA0NTM@._V1_Ratio0.7273_AL_.jpg"
+                    src={movie.image}
                     alt={movie.title}
                     style={{
                       borderRadius: "15px",
