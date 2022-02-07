@@ -10,14 +10,14 @@ import { Navigation, FreeMode } from "swiper";
 import Star from "elements/Star";
 import Button from "elements/Button";
 
-import { homePages } from "assets/DummyData/homePages";
+// import { homePages } from "assets/DummyData/homePages";
 
-export default function Movies() {
-  const { trending } = homePages;
+export default function Movies({ movies, label }) {
+  // const { trending } = homePages;
 
   return (
-    <div className="container">
-      <h3 style={{ marginBottom: "50px" }}>Trending</h3>
+    <div className="container" style={{ marginBottom: "50px" }}>
+      <h3 style={{ marginBottom: "50px" }}>{label}</h3>
       <Swiper
         className="row"
         slidesPerView={6}
@@ -29,7 +29,7 @@ export default function Movies() {
         grabCursor={true}
         modules={[Navigation, FreeMode]}
       >
-        {trending.map((movie, index) => {
+        {movies.map((movie, index) => {
           return (
             <SwiperSlide
               className="col-2"

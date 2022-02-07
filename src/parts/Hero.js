@@ -1,11 +1,11 @@
 import React from "react";
-import { homePages } from "../assets/DummyData/homePages";
+// import { homePages } from "../assets/DummyData/homePages";
 import Button from "elements/Button";
 import { FaPlay } from "react-icons/fa";
 import { BsInfoCircle } from "react-icons/bs";
 
-export default function Hero() {
-  const { heroSection } = homePages;
+export default function Hero({ heroSection }) {
+  // const { heroSection } = homePages;
 
   return (
     <div className="hero-container">

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 import "assets/scss/style.scss";
-// import { handleInitialData } from "./actions/shared";
+import { handleInitialData } from "./actions/shared";
 
 // Import Pages
 import Home from "pages/Home";
@@ -25,7 +25,7 @@ function App() {
   };
 
   useEffect(() => {
-    // dispatch(handleInitialData());
+    dispatch(handleInitialData());
 
     // Dynamically Update SCSS for Sidebar
     const root = document.documentElement;
