@@ -134,9 +134,17 @@ $large: 992px;
   transition: 0.5s transform ease-in-out;
   opacity: 0.8;
 
+  a {
+    text-decoration: none;
+  }
+
   &:hover {
     transform: scale(1.1);
     transition: 0.5s transform ease-in-out;
     opacity: 1;
+
+    a {
+      text-decoration: underline;
+    }
   }
 }

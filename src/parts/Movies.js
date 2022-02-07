@@ -36,7 +36,7 @@ export default function Movies() {
               key={`trending-${movie.id}-${index}`}
             >
               <div
-                className="card d-flex justify-content-center card-movie"
+                className="card d-block justify-content-center card-movie"
                 style={{ background: "none" }}
               >
                 <div
@@ -52,7 +52,11 @@ export default function Movies() {
                       marginBottom: "10px"
                     }}
                   />
-                  <Button type="link" href={`/movie/${movie.id}`}>
+                  <Button
+                    type="link"
+                    href={`/movie/${movie.id}`}
+                    className="stretched-link d-block"
+                  >
                     <h6 className="text-center text-light">{movie.title}</h6>
                   </Button>
 
