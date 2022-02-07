@@ -7,6 +7,9 @@ import "swiper/scss/pagination";
 
 import { Navigation, FreeMode } from "swiper";
 
+import Star from "elements/Star";
+import Button from "elements/Button";
+
 import { homePages } from "assets/DummyData/homePages";
 
 export default function Movies() {
@@ -33,7 +36,7 @@ export default function Movies() {
               key={`trending-${movie.id}-${index}`}
             >
               <div
-                className="card d-flex justify-content-center"
+                className="card d-flex justify-content-center card-movie"
                 style={{ background: "none" }}
               >
                 <div
@@ -49,7 +52,23 @@ export default function Movies() {
                       marginBottom: "10px"
                     }}
                   />
-                  <h6 className="text-center">{movie.title}</h6>
+                  <Button type="link" href={`/movie/${movie.id}`}>
+                    <h6 className="text-center text-light">{movie.title}</h6>
+                  </Button>
+
+                  {movie.rate ? (
+                    <>
+                      <Star
+                        value={Number(movie.rate / 2)}
+                        width={17}
+                        height={17}
+                        spacing={4}
+                      />
+                      <p className="text-dark">{movie.rate}</p>
+                    </>
+                  ) : (
+                    <p className="text-dark">No rating</p>
+                  )}
                 </div>
               </div>
             </SwiperSlide>

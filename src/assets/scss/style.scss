@@ -126,3 +126,17 @@ $large: 992px;
   align-items: center;
   padding: 0 20px;
 }
+
+.card-movie {
+  z-index: 3;
+  cursor: pointer;
+  transform: scale(1);
+  transition: 0.5s transform ease-in-out;
+  opacity: 0.8;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: 0.5s transform ease-in-out;
+    opacity: 1;
+  }
+}
