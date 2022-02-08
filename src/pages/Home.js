@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 
 import Hero from "../parts/Hero";
 import Movies from "parts/Movies";
+import Footer from "parts/Footer";
 
 export default function Home() {
   const homePages = useSelector(state => state.homePages);
@@ -19,6 +20,8 @@ export default function Home() {
       {homePages.upcoming && (
         <Movies label="Upcoming" movies={homePages.upcoming} />
       )}
+
+      {Object.keys(homePages).length === 4 && <Footer />}
     </div>
   );
 }

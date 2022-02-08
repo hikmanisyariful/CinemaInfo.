@@ -17,7 +17,9 @@ export default function Movies({ movies, label }) {
 
   return (
     <div className="container" style={{ marginBottom: "50px" }}>
-      <h3 style={{ marginBottom: "50px" }}>{label}</h3>
+      <h3 className="text-light" style={{ marginBottom: "50px" }}>
+        {label}
+      </h3>
       <Swiper
         className="row"
         slidesPerView={6}
