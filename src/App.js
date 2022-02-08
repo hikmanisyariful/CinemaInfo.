@@ -25,7 +25,7 @@ function App() {
   };
 
   useEffect(() => {
-    dispatch(handleInitialData());
+    // dispatch(handleInitialData());
 
     // Dynamically Update SCSS for Sidebar
     const root = document.documentElement;

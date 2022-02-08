@@ -1,13 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import Hero from "../parts/Hero";
 import Movies from "parts/Movies";
 import Footer from "parts/Footer";
 
-export default function Home() {
-  const homePages = useSelector(state => state.homePages);
+import { homePages } from "assets/DummyData/homePages";
 
+export default function Home() {
+  // const homePages = useSelector(state => state.homePages);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="pages-test">
       {homePages.heroSection && <Hero heroSection={homePages.heroSection} />}
