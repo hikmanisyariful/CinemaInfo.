@@ -26,14 +26,16 @@ function App() {
   };
 
   useEffect(() => {
-    // dispatch(handleInitialData());
+    dispatch(handleInitialData());
+  }, [dispatch]);
 
+  useEffect(() => {
     // Dynamically Update SCSS for Sidebar
     const root = document.documentElement;
     root?.style.setProperty("--opacity-sidebar", isOpen ? "100%" : "0");
     root?.style.setProperty("--top-sidebar", isOpen ? "0" : "-100%");
     root?.style.setProperty("--display-faBars", isOpen ? "none" : "block");
-  }, [isOpen, dispatch]);
+  }, [isOpen]);
 
   return (
     <div className="App">

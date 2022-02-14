@@ -5,10 +5,10 @@ import Hero from "../parts/Hero";
 import Movies from "parts/Movies";
 import Footer from "parts/Footer";
 
-import { homePages } from "assets/DummyData/homePages";
+// import { homePages } from "assets/DummyData/homePages";
 
 export default function Home() {
-  // const homePages = useSelector(state => state.homePages);
+  const homePages = useSelector(state => state.homePages);
 
   useEffect(() => {
     window.scrollTo(0, 0);

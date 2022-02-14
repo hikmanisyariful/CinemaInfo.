@@ -1,17 +1,20 @@
 export const homePages = {
   heroSection: {
-    id: "tt13393058",
-    title: "Ben & Jody",
+    id: "tt6467266",
+    title: "Sing 2",
+    casts: "Matthew McConaughey, Reese Witherspoon, Scarlett Johansson",
+    duration: "1h 50min",
+    genres: "Animation, Adventure, Comedy",
+
+    linkEmbed: "https://www.imdb.com/video/imdb/vi3084043033/imdb/embed",
     plot:
-      "Since deciding to leave Filosofi Kopi, Ben (Chicco Jerikho) has lived in his hometown and has been actively defending farmer groups whose land has been taken over by the Company. At the same time, Jody (Rio Dewanto) is preparing a new concept of Philosophy of Coffee which will be launched soon. Ahead of the launch event, Ben who was scheduled to attend suddenly disappears. Jody sets out to find Ben. In order to save Ben, they face life and death adventures against gangs of illegal loggers led by Tubir (Yayan Ruhian), until their encounter with a traditional village group changes the map of their resistance.",
+      "With his theatrical company a local success, Buster Moon is dreaming of bigger things. Unfortunately, when a talent scout dismisses their work as inadequate for the big time, Buster is driven to prove her wrong. With that goal in mind, Buster inspires his players to gamble everything to sneak into a talent audition in Redshore City for the demanding entertainment mogul Jimmy Crystal. Against the odds, they catch his interest with some frantic creative improvisation and even more desperate lies like personally knowing the reclusive rock star, Clay Calloway, who has not been seen in 15 years. Now faced with a tight production window with only a vague story idea and dire consequences for failure, Buster and his friends must all stretch their talents put on a show against all odds. In that struggle, the gang's challenges seem insurmountable, but each of them finds new inspirations and friends where they least expect them to pursue an artistic dream worthy of them.",
+    rating: "7.5",
     thumbnailURL:
-      "https://m.media-amazon.com/images/M/MV5BMTRlZjU5ZGEtNGI1Mi00ZmVkLTgxMzYtNDgxMWQyNGViZjQ2XkEyXkFqcGdeQWFuaW5vc2M@._V1_.jpg",
-    linkEmbed: "https://www.imdb.com/video/imdb/vi405586713/imdb/embed",
-    duration: "1h 54min",
-    year: "2022",
-    casts: "Chicco Jerikho, Rio Dewanto, Hana Malasan",
-    genres: "Action, Adventure, Drama",
-    rating: "7.1"
+      "https://m.media-amazon.com/images/M/MV5BZTQ0MmI0MmEtNjQwNi00NDFmLWEwMGUtZWYyMGYxYzQ5ZTNiXkEyXkFqcGdeQWxiaWFtb250._V1_.jpg",
+
+    year: "2021",
+    youtubeTrailer: "https://www.youtube.com/watch?v=EPZu5MA2uqI"
   },
   trending: [
     {
