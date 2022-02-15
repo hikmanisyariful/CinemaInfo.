@@ -28,7 +28,7 @@ export default function MovieId() {
       return (
         <div>
           <Hero heroSection={dataMovie} isMovie isDetails />
-          <ContentMovie />
+          <ContentMovie data={dataMovie} />
         </div>
       );
     } else {
