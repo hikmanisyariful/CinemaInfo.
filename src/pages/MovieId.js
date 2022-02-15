@@ -4,14 +4,15 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { handleGetDataMovie } from "actions/movieIdPages";
 
-// import { movieIDPage } from "assets/DummyData/movieIdPage";
+import { movieIDPage } from "assets/DummyData/movieIdPage";
 
 import Hero from "parts/Hero";
+import ContentMovie from "parts/ContentMovie";
 
 export default function MovieId() {
   const params = useParams();
   const dispatch = useDispatch();
-  const movieIDPage = useSelector(state => state.movieIDPage);
+  // const movieIDPage = useSelector(state => state.movieIDPage);
 
   useEffect(() => {
     dispatch(handleGetDataMovie(params.movieId));
@@ -27,6 +28,7 @@ export default function MovieId() {
       return (
         <div>
           <Hero heroSection={dataMovie} isMovie isDetails />
+          <ContentMovie />
         </div>
       );
     } else {
