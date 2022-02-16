@@ -3,7 +3,7 @@ import React from "react";
 export default function LoadingCard() {
   const amountCards = [1, 2, 3, 4, 5, 6];
   return (
-    <div className="container">
+    <div className="container mb-5 mt-5">
       <h3
         className="text-light placeholder-glow"
         style={{ marginBottom: "50px" }}
@@ -13,7 +13,7 @@ export default function LoadingCard() {
       <div className="row">
         {amountCards.map((number, index) => {
           return (
-            <div className="col-2" key={`number-index-placeholder`}>
+            <div className="col-2" key={`${number}-${index}-placeholder`}>
               <div
                 className="card rounded"
                 aria-hidden="true"

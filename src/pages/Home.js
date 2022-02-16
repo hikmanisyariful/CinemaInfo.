@@ -6,10 +6,10 @@ import Movies from "parts/Movies";
 import Footer from "parts/Footer";
 import LoadingCard from "parts/LoadingCard";
 
-import { homePages } from "assets/DummyData/homePages";
+// import { homePages } from "assets/DummyData/homePages";
 
 export default function Home() {
-  // const homePages = useSelector(state => state.homePages);
+  const homePages = useSelector(state => state.homePages);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -33,7 +33,7 @@ export default function Home() {
         <LoadingCard />
       )}
 
-      <LoadingCard />
+      {/* <LoadingCard /> */}
 
       {Object.keys(homePages).length === 4 && <Footer />}
     </div>

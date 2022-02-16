@@ -264,13 +264,10 @@ export const movieIDPage = {
     ],
     directorList: [
       {
-        status: "fulfilled",
-        value: {
-          id: "nm1134029",
-          name: "Garth Jennings",
-          image:
-            "https://imdb-api.com/images/original/MV5BMTA4OTkxMzY3MjheQTJeQWpwZ15BbWU2MDM4NjQ2NA@@._V1_Ratio0.6751_AL_.jpg"
-        }
+        id: "nm1134029",
+        name: "Garth Jennings",
+        image:
+          "https://imdb-api.com/images/original/MV5BMTA4OTkxMzY3MjheQTJeQWpwZ15BbWU2MDM4NjQ2NA@@._V1_Ratio0.6751_AL_.jpg"
       }
     ],
     actorList: [

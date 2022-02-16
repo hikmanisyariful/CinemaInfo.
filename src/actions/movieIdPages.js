@@ -35,7 +35,7 @@ const formatData = (data, youtube, reviews, directors) => {
 
 async function getDataNameById(nameId) {
   const getDataName = await axios.get(
-    `https://imdb-api.com/en/API/Name/k_d22q4jgu/${nameId}`
+    `https://imdb-api.com/en/API/Name/k_zj0gxvlc/${nameId}`
   );
   const data = getDataName.data;
 
@@ -48,22 +48,25 @@ async function getDataNameById(nameId) {
 
 async function getDataMovie(movieId) {
   const getFullData = await axios.get(
-    `https://imdb-api.com/en/API/Title/k_d22q4jgu/${movieId}/Images,Trailer,Ratings,Wikipedia,`
+    `https://imdb-api.com/en/API/Title/k_zj0gxvlc/${movieId}/Images,Trailer,Ratings,Wikipedia,`
   );
   const fullDataMovie = getFullData.data;
 
   const getYoutubeData = await axios.get(
-    `https://imdb-api.com/en/API/YouTubeTrailer/k_d22q4jgu/${movieId}`
+    `https://imdb-api.com/en/API/YouTubeTrailer/k_zj0gxvlc/${movieId}`
   );
   const youtubeData = getYoutubeData.data;
 
   const getDirectorList = fullDataMovie.directorList.map(director =>
     getDataNameById(director.id)
   );
-  const directorList = await Promise.allSettled(getDirectorList);
+  const directorListPromise = await Promise.allSettled(getDirectorList);
+  const directorList = directorListPromise.map(director => {
+    return director.value;
+  });
 
   const getReviews = await axios.get(
-    `https://imdb-api.com/en/API/Reviews/k_d22q4jgu/${movieId}`
+    `https://imdb-api.com/en/API/Reviews/k_zj0gxvlc/${movieId}`
   );
   const reviewsData = getReviews.data.items;
 
