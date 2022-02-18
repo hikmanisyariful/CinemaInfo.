@@ -26,11 +26,8 @@ async function getDataName(nameId) {
     `https://imdb-api.com/en/API/Name/k_1y2hx2b3/${nameId}`
   );
   const data = getName.data;
-  console.log(data.knownFor);
   const sortKnownFor = data.knownFor.sort((a, b) => b.year - a.year);
-  console.log(sortKnownFor);
   const payload = formatData(data, sortKnownFor);
-
   return payload;
 }
 

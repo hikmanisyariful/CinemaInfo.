@@ -19,6 +19,13 @@ export default function Hero({
     navigate(`/movie/${movieId}`);
   };
 
+  const showDetailsMovie = () => {
+    window.scrollTo({
+      top: refDetailsMovie.current.offsetTop - 100,
+      behavior: "smooth"
+    });
+  };
+
   return (
     <div className="hero-container">
       <div className="container">
@@ -47,7 +54,12 @@ export default function Hero({
             )}
 
             {isDetails ? (
-              <ButtonLookPictures data={heroSection} />
+              <Button
+                className="btn button-secondary"
+                onClick={showDetailsMovie}
+              >
+                Read More
+              </Button>
             ) : (
               <Button
                 className="btn button-secondary"
@@ -75,31 +87,8 @@ export default function Hero({
   );
 }
 
-const ReadMore = ({ children, isDetails, refDetailsMovie }) => {
+const ReadMore = ({ children }) => {
   const text = children;
-  const showDetailsMovie = () => {
-    window.scrollTo({
-      top: refDetailsMovie.current.offsetTop - 100,
-      behavior: "smooth"
-    });
-  };
 
-  return (
-    <p className="text text-light info">
-      {text.slice(0, 500)}
-      {isDetails ? (
-        <Button className="btn button-link" isSmall onClick={showDetailsMovie}>
-          {"  "}
-          <span
-            className="read-or-hide text-warning mx-20 fs-6 fw-bold"
-            style={{ cursor: "pointer" }}
-          >
-            ...read more
-          </span>
-        </Button>
-      ) : (
-        <span> ....</span>
-      )}
-    </p>
-  );
+  return <p className="text text-light info">{text.slice(0, 500)} ...</p>;
 };

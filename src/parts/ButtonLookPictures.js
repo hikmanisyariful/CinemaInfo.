@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Button from "elements/Button";
 import Posters from "parts/ModalPosters";
-import { BsImages } from "react-icons/bs";
 
 export default function ButtonLookPictures({ data }) {
   const [show, setShow] = useState(false);
@@ -18,14 +17,14 @@ export default function ButtonLookPictures({ data }) {
     <>
       {data.images && (
         <Button
-          className="btn button-secondary"
+          className="btn button-link stretched-link"
           isBlock
           href={`/movie/${data.id}`}
           onClick={() => onShow()}
         >
-          <div className="fill-wrap">
-            <BsImages style={{ color: "white" }} />
-            Look Pictures
+          <div className="row">
+            <p>Click here!</p>
+            <p>to look pictures</p>
           </div>
         </Button>
       )}
