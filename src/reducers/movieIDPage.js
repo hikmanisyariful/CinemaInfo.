@@ -13,7 +13,7 @@ export default function movieIDPage(state = {}, action) {
     case SAVE_PARAMS_MOVIE_ID_CURRENT:
       return {
         ...state,
-        currentMovieId: [action.payload]
+        currentMovieId: action.payload
       };
     default:
       return state;

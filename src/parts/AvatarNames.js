@@ -31,7 +31,7 @@ export default function AvatarNames({ data, label, paramsMovieId }) {
                 className="btn button-link stretched-link p-0 m-0"
                 type="link"
                 href={`/name/${actor.id}`}
-                onClick={saveParams()}
+                onClick={() => saveParams()}
               >
                 <p
                   className="text-light text-center lh-1 mb-1"
