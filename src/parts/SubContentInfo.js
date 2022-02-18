@@ -26,11 +26,17 @@ export default function SubContentInfo({ data }) {
           />
         </div>
       </div>
-      <div className="row mb-3"></div>
+      <div className="row mb-5">
+        <div className="col">
+          <h3 className="h3 text-light mb-5">Sinopsis</h3>
+          <div className="col-11">
+            <p className="text-dark">{data.plot}</p>
+          </div>
+        </div>
+      </div>
       <div className="row">
         <div className="col">
           <h3 className="h3 text-light mb-5">Reviews</h3>
-          {/* <div className="row">{JSON.stringify(data.reviews)}</div> */}
           <ShowMoreReviews reviews={data.reviews} />
         </div>
       </div>
@@ -75,7 +81,7 @@ const ReadMore = ({ children }) => {
 
 const ShowMoreReviews = ({ reviews }) => {
   return (
-    <ShowMore items={reviews} by={5}>
+    <ShowMore items={reviews} by={3}>
       {({ current, onMore }) => (
         <>
           <div className="row">

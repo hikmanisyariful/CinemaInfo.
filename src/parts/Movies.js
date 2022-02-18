@@ -46,8 +46,8 @@ export default function Movies({ movies, label }) {
                   style={{ width: "100%" }}
                 >
                   <img
-                    // src="https://imdb-api.com/images/original/MV5BNmQxZDNjYjUtZGU5MC00ZTI0LWIyMTAtMmJjODJiNjQzODkzXkEyXkFqcGdeQXVyMTEzMTI1Mjk3._V1_Ratio0.7273_AL_.jpg"
-                    src={movie.image}
+                    src="https://imdb-api.com/images/original/MV5BNmQxZDNjYjUtZGU5MC00ZTI0LWIyMTAtMmJjODJiNjQzODkzXkEyXkFqcGdeQXVyMTEzMTI1Mjk3._V1_Ratio0.7273_AL_.jpg"
+                    // src={movie.image}
                     alt={movie.title}
                     style={{
                       borderRadius: "15px",

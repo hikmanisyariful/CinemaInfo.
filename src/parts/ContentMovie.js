@@ -3,7 +3,7 @@ import SubContentInfo from "parts/SubContentInfo";
 import AvatarNames from "parts/AvatarNames";
 import LabelCategories from "parts/LabelCategories";
 
-export default function ContentMovie({ data }) {
+export default function ContentMovie({ data, refDetailsMovie }) {
   const actorList =
     data.actorList.length > 6 ? data.actorList.slice(0, 6) : data.actorList;
 
@@ -21,7 +21,7 @@ export default function ContentMovie({ data }) {
   });
 
   return (
-    <div className="container mb-5">
+    <div className="container mb-5" ref={refDetailsMovie}>
       <div className="row">
         {/* Column Left */}
         <SubContentInfo data={data} />
