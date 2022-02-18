@@ -7,18 +7,18 @@ import Button from "elements/Button";
 import Footer from "parts/Footer";
 import { handleGetDataName } from "actions/nameIdPages";
 
-import { nameIdPage } from "assets/DummyData/nameIdPage";
+// import { nameIdPage } from "assets/DummyData/nameIdPage";
 
 export default function NameId() {
   const params = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // const nameIdPage = useSelector(state => state.nameIdPage);
+  const nameIdPage = useSelector(state => state.nameIdPage);
   const currentMovieId = useSelector(state => state.movieIDPage.currentMovieId);
 
   useEffect(() => {
-    // dispatch(handleGetDataName(params.nameId));
+    dispatch(handleGetDataName(params.nameId));
   }, [dispatch, params]);
 
   useEffect(() => {
@@ -27,13 +27,6 @@ export default function NameId() {
 
   const handleBackToMovieId = () => {
     navigate(`/movie/${currentMovieId}`);
-  };
-
-  const getWords = summary => {
-    const str1 = summary.split(" is ");
-    const str2 = str1[1].split(",");
-    const str3 = str2[0];
-    return str3;
   };
 
   const renderNameId = (names, nameId) => {
@@ -53,7 +46,10 @@ export default function NameId() {
                       {dataName.name},{" "}
                     </span>
                     <span className="text-warning fs-3">
-                      {getWords(dataName.summary)}, {dataName.awards}
+                      is {dataName.role}
+                      {dataName.awards !== ""
+                        ? `, with ${dataName.awards}`
+                        : "."}
                     </span>
                   </div>
                 </div>
@@ -74,9 +70,15 @@ export default function NameId() {
                   <div className="col-7 ms-5">
                     <h2>Summary</h2>
                     <div className="p pe-5 mt-4 lh-lg fs-5 text-danger">
-                      <span className="bg-light bg-opacity-25 p-1 fw-light">
-                        {dataName.summary}
-                      </span>
+                      {dataName.summary === "" ? (
+                        <span className="bg-light bg-opacity-25 p-1 fw-light">
+                          Nothing summary!
+                        </span>
+                      ) : (
+                        <span className="bg-light bg-opacity-25 p-1 fw-light">
+                          {dataName.summary}
+                        </span>
+                      )}
                     </div>
                   </div>
                 </div>

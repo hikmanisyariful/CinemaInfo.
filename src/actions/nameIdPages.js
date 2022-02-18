@@ -23,7 +23,7 @@ function formatData(data, knownFor) {
 
 async function getDataName(nameId) {
   const getName = await axios.get(
-    `https://imdb-api.com/en/API/Name/k_1y2hx2b3/${nameId}`
+    `https://imdb-api.com/en/API/Name/k_m8a8f7lf/${nameId}`
   );
   const data = getName.data;
   const sortKnownFor = data.knownFor.sort((a, b) => b.year - a.year);

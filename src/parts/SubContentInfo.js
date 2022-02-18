@@ -3,6 +3,7 @@ import ShowMore from "react-show-more-list";
 
 import Star from "elements/Star";
 import { CgProfile } from "react-icons/cg";
+import { MdOutlineNotInterested } from "react-icons/md";
 
 export default function SubContentInfo({ data }) {
   return (
@@ -37,7 +38,16 @@ export default function SubContentInfo({ data }) {
       <div className="row">
         <div className="col">
           <h3 className="h3 text-light mb-5">Reviews</h3>
-          <ShowMoreReviews reviews={data.reviews} />
+          {data.reviews.length > 1 ? (
+            <ShowMoreReviews reviews={data.reviews} />
+          ) : (
+            <div className="row mt-5">
+              <div className="col justify-content-center align-items-center">
+                <MdOutlineNotInterested style={{ width: 100, height: 100 }} />
+                <p className="text-light fs-4">Nothing Reviews!</p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -47,15 +57,6 @@ export default function SubContentInfo({ data }) {
 function suitable(rating) {
   const percentage = Number(rating) * 10;
   return `${percentage}% suitable`;
-}
-
-function ageRate(contentRating) {
-  const getAge = contentRating.split("-");
-  if (getAge.length > 1) {
-    return `${getAge[1]}+`;
-  } else {
-    return `SU`;
-  }
 }
 
 const ReadMore = ({ children }) => {

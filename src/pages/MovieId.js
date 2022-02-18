@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 import { handleGetDataMovie } from "actions/movieIdPages";
 
-import { movieIDPage } from "assets/DummyData/movieIdPage";
+// import { movieIDPage } from "assets/DummyData/movieIdPage";
 
 import Hero from "parts/Hero";
 import ContentMovie from "parts/ContentMovie";
@@ -17,10 +17,10 @@ export default function MovieId() {
   const navigate = useNavigate();
   const params = useParams();
   const dispatch = useDispatch();
-  // const movieIDPage = useSelector(state => state.movieIDPage);
+  const movieIDPage = useSelector(state => state.movieIDPage);
 
   useEffect(() => {
-    // dispatch(handleGetDataMovie(params.movieId));
+    dispatch(handleGetDataMovie(params.movieId));
   }, [params, dispatch]);
 
   useEffect(() => {
