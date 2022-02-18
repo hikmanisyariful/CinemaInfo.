@@ -1,4 +1,7 @@
-import { RECEIVE_DATA_MOVIE_BY_ID } from "actions/movieIdPages";
+import {
+  RECEIVE_DATA_MOVIE_BY_ID,
+  SAVE_PARAMS_MOVIE_ID_CURRENT
+} from "actions/movieIdPages";
 
 export default function movieIDPage(state = {}, action) {
   switch (action.type) {
@@ -6,6 +9,11 @@ export default function movieIDPage(state = {}, action) {
       return {
         ...state,
         [action.payload.id]: action.payload
+      };
+    case SAVE_PARAMS_MOVIE_ID_CURRENT:
+      return {
+        ...state,
+        currentMovieId: [action.payload]
       };
     default:
       return state;

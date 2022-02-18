@@ -1,6 +1,14 @@
 import axios from "axios";
 
 export const RECEIVE_DATA_MOVIE_BY_ID = "RECEIVE_DATA_MOVIE_BY_ID";
+export const SAVE_PARAMS_MOVIE_ID_CURRENT = "SAVE_PARAMS_MOVIE_ID_CURRENT";
+
+export function saveParamsMovieIdCurrent(payload) {
+  return {
+    type: SAVE_PARAMS_MOVIE_ID_CURRENT,
+    payload
+  };
+}
 
 export function receiveDataMovieById(payload) {
   return {

@@ -12,6 +12,7 @@ import About from "pages/About";
 import Search from "pages/Search";
 import Profile from "pages/Profile";
 import MovieId from "pages/MovieId";
+import NameId from "pages/NameId";
 
 // Import Component parts
 import Header from "parts/Header";
@@ -49,6 +50,7 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/movie/:movieId" element={<MovieId />} />
+        <Route path="/name/:nameId" element={<NameId />} />
         <Route
           path="*"
           element={

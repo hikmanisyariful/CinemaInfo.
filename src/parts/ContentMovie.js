@@ -3,7 +3,7 @@ import SubContentInfo from "parts/SubContentInfo";
 import AvatarNames from "parts/AvatarNames";
 import LabelCategories from "parts/LabelCategories";
 
-export default function ContentMovie({ data, refDetailsMovie }) {
+export default function ContentMovie({ data, refDetailsMovie, paramsMovieId }) {
   const actorList =
     data.actorList.length > 6 ? data.actorList.slice(0, 6) : data.actorList;
 
@@ -27,8 +27,16 @@ export default function ContentMovie({ data, refDetailsMovie }) {
         <SubContentInfo data={data} />
         {/* Column Right */}
         <div className="col-4" style={{ height: "100%" }}>
-          <AvatarNames data={actorList} label={"Casts"} />
-          <AvatarNames data={directorList} label={"Directors"} />
+          <AvatarNames
+            data={actorList}
+            label={"Casts"}
+            paramsMovieId={paramsMovieId}
+          />
+          <AvatarNames
+            data={directorList}
+            label={"Directors"}
+            paramsMovieId={paramsMovieId}
+          />
 
           <LabelCategories data={companyList} label={"Companies"} />
           <LabelCategories data={genreList} label={"Genres"} />

@@ -33,7 +33,7 @@ export default function MovieId() {
 
   const renderMovieId = (movies, movieIdParams) => {
     const idMovieCurrent = Object.keys(movies).filter(
-      movie => movie === movieIdParams
+      id => id === movieIdParams
     );
     const dataMovie = movieIDPage[idMovieCurrent];
 
@@ -47,7 +47,11 @@ export default function MovieId() {
             refDetailsMovie={refDetailsMovie}
           />
 
-          <ContentMovie data={dataMovie} refDetailsMovie={refDetailsMovie} />
+          <ContentMovie
+            data={dataMovie}
+            refDetailsMovie={refDetailsMovie}
+            paramsMovieId={params.movieId}
+          />
 
           <div className="row justify-content-center mt-5 mx-0">
             <div className="col-auto">
