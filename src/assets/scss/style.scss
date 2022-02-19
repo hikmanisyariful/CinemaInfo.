@@ -240,3 +240,12 @@ footer {
     }
   }
 }
+
+.button-hover {
+  background: $white;
+  color: $black;
+  &:hover {
+    background: $black;
+    color: $white;
+  }
+}
