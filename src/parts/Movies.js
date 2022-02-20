@@ -10,14 +10,15 @@ import { Navigation, FreeMode } from "swiper";
 import Star from "elements/Star";
 import Button from "elements/Button";
 
-// import { homePages } from "assets/DummyData/homePages";
-
-export default function Movies({ movies, label }) {
+export default function Movies({ movies, label, isSearch }) {
   return (
     <div className="container" style={{ marginBottom: "50px" }}>
-      <h3 className="text-light" style={{ marginBottom: "50px" }}>
-        {label}
-      </h3>
+      {!isSearch && (
+        <h3 className="text-light" style={{ marginBottom: "50px" }}>
+          {label}
+        </h3>
+      )}
+
       <Swiper
         className="row"
         slidesPerView={6}
@@ -44,8 +45,8 @@ export default function Movies({ movies, label }) {
                   style={{ width: "100%" }}
                 >
                   <img
-                    src="https://imdb-api.com/images/original/MV5BNmQxZDNjYjUtZGU5MC00ZTI0LWIyMTAtMmJjODJiNjQzODkzXkEyXkFqcGdeQXVyMTEzMTI1Mjk3._V1_Ratio0.7273_AL_.jpg"
-                    // src={movie.image}
+                    // src="https://imdb-api.com/images/original/MV5BNmQxZDNjYjUtZGU5MC00ZTI0LWIyMTAtMmJjODJiNjQzODkzXkEyXkFqcGdeQXVyMTEzMTI1Mjk3._V1_Ratio0.7273_AL_.jpg"
+                    src={movie.image}
                     alt={movie.title}
                     style={{
                       borderRadius: "15px",
@@ -72,7 +73,13 @@ export default function Movies({ movies, label }) {
                       <p className="text-dark">{movie.rate}</p>
                     </>
                   ) : (
-                    <p className="text-dark">No rating</p>
+                    <>
+                      {isSearch ? (
+                        <div></div>
+                      ) : (
+                        <p className="text-dark">No rating</p>
+                      )}
+                    </>
                   )}
                 </div>
               </div>
