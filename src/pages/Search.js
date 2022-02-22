@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import FormSearch from "parts/FormSearch";
-import MoviesSearch from "parts/MoviesSearch";
+import PaginatedMovies from "parts/PaginatedMovies";
+import Footer from "parts/Footer";
 
 import { searchPage } from "assets/DummyData/searchPage";
 
 export default function Search() {
   // const searchPage = useSelector(state => state.searchPage);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="container" style={{ marginTop: 150 }}>
@@ -17,12 +22,9 @@ export default function Search() {
         </div>
       </div>
       <div className="row">
-        {searchPage.movies ? (
-          <MoviesSearch movies={searchPage.movies} />
-        ) : (
-          <MoviesSearch movies={searchPage.defaultMovies} />
-        )}
+        <PaginatedMovies itemsPerPage={12} items={searchPage.movies} />
       </div>
+      <Footer />
     </div>
   );
 }

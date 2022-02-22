@@ -23,7 +23,7 @@ export default function FormSearch() {
     dispatch(handleSearchMovies({ search, category }));
   };
   return (
-    <div className="row justify-content-center">
+    <div className="row justify-content-center mb-5">
       <form
         className="col-4"
         style={{ background: "white" }}

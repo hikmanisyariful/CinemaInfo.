@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 import Button from "elements/Button";
 import ButtonPlayYoutube from "parts/ButtonPlayYoutube";
-import ButtonLookPictures from "parts/ButtonLookPictures";
 
 import { BsInfoCircle } from "react-icons/bs";
 
@@ -35,7 +34,7 @@ export default function Hero({
           ) : (
             <div className="col-6">
               <h3
-                className="h3 text-info fw-bolder bg-light"
+                className="h3 text-black fw-bolder bg-light"
                 style={{ marginBottom: 40, padding: 5, borderRadius: "5px" }}
               >
                 Now Playing in Cinema

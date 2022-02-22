@@ -14,26 +14,27 @@ export default function Pictures({ data }) {
           </div>
         </div>
         <div className="row rounded posters">
-          {data.images.map((image, index) => {
-            if (index < 4) {
-              return (
-                <div
-                  className={`${index === 0 ? "col-12" : "col-4"} px-0`}
-                  key={`poster-picture-${index}`}
-                >
-                  <img
-                    src={image.image}
-                    alt={image.title}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "fill"
-                    }}
-                  />
-                </div>
-              );
-            }
-          })}
+          {data.images &&
+            data.images.map((image, index) => {
+              if (index < 4) {
+                return (
+                  <div
+                    className={`${index === 0 ? "col-12" : "col-4"} px-0`}
+                    key={`poster-picture-${index}`}
+                  >
+                    <img
+                      src={image.image}
+                      alt={image.title}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        objectFit: "fill"
+                      }}
+                    />
+                  </div>
+                );
+              }
+            })}
         </div>
       </div>
     </div>
