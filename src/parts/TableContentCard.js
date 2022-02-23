@@ -54,7 +54,7 @@ export default function TableContentCard({ currentItems, refScrollTop }) {
           {currentItems &&
             currentItems.map((movie, index) => {
               const getUpDown = movie.rankUpDown.slice(0, 1);
-              const isUpDown = getUpDown === "+" ? true : false;
+              const isUpDown = getUpDown === "-" ? false : true;
               return (
                 <tr key={`TopMovie-${index}-${movie.id}`}>
                   <th className="text-center col-2">
