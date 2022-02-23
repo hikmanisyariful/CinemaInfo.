@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
-import MoviesSearch from "parts/MoviesSearch";
+import TableContentCard from "./TableContentCard";
 
 export default function PaginatedMovies({ itemsPerPage, items }) {
   // We start with an empty list of items.
@@ -16,7 +16,7 @@ export default function PaginatedMovies({ itemsPerPage, items }) {
     console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     setCurrentItems(items.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(items.length / itemsPerPage));
-  }, [itemOffset, itemsPerPage]);
+  }, [itemOffset, itemsPerPage, items]);
 
   // Invoke when user click to request another page.
   const handlePageClick = event => {
@@ -25,10 +25,19 @@ export default function PaginatedMovies({ itemsPerPage, items }) {
       `User requested page number ${event.selected}, which is offset ${newOffset}`
     );
     setItemOffset(newOffset);
+
+    // Window back to up
+    window.scrollTo(0, 180);
+    const overflowTBody = document.querySelector("#overflowTBody");
+    overflowTBody.scrollTop = 0;
   };
 
   return (
     <div className="row mt-5">
+      <TableContentCard
+        currentItems={currentItems}
+        // refScrollTop={refScrollTop}
+      />
       <ReactPaginate
         // containerClassName="pagination"
         className="pagination justify-content-center"
@@ -50,7 +59,7 @@ export default function PaginatedMovies({ itemsPerPage, items }) {
         renderOnZeroPageCount={null}
       />
 
-      <MoviesSearch currentItems={currentItems} />
+      {/* <MoviesSearch currentItems={currentItems} /> */}
     </div>
   );
 }

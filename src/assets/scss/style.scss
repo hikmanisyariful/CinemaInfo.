@@ -8,6 +8,8 @@
 /* Import font-family : poppins */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Tourney:wght@200;400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
 
 @import "swiper/scss";
 @import "swiper/scss/navigation";
@@ -248,5 +250,57 @@ footer {
   &:hover {
     background: $black;
     color: $white;
+  }
+}
+
+.top-title {
+  font-family: "Tourney", cursive;
+  font-size: 48px;
+}
+
+.rank {
+  font-family: "Tourney", cursive;
+  font-weight: 200;
+  font-size: 144px;
+}
+
+.rankUpDown {
+  font-family: "Audiowide", cursive;
+}
+
+.fixed_header {
+  thead tr {
+    display: grid;
+    grid-template-areas: "rank rank poster poster poster desc desc desc desc info info info";
+
+    #rank {
+      grid-area: rank;
+    }
+
+    #poster {
+      grid-area: poster;
+    }
+
+    #desc {
+      grid-area: desc;
+    }
+
+    #info {
+      grid-area: info;
+    }
+
+    #rank,
+    #poster,
+    #desc,
+    #info {
+      width: 100%;
+    }
+  }
+
+  tbody {
+    display: block;
+    overflow: auto;
+    height: 700px;
+    width: 100%;
   }
 }

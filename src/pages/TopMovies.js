@@ -1,22 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
+import NavigateTopSection from "parts/NavigateTopSection";
+import Footer from "parts/Footer";
+import PaginatedTables from "parts/PaginatedTables";
+import { topMovieSeries } from "assets/DummyData/topMoviePage";
 
 export default function TopMovies() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div
-      className="pages-test"
-      style={{ marginTop: 100, background: "white", color: "black" }}
-    >
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-8">col-sm-8</div>
-          <div class="col-sm-4">col-sm-4</div>
-        </div>
-        <div class="row">
-          <div class="col">col-sm</div>
-          <div class="col">col-sm</div>
-          <div class="col">col-sm</div>
-        </div>
-      </div>
+    <div className="container" style={{ marginTop: 100 }}>
+      <NavigateTopSection />
+      <PaginatedTables itemsPerPage={10} items={topMovieSeries.mostPopular} />
+      <Footer />
     </div>
   );
 }

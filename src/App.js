@@ -44,7 +44,10 @@ function App() {
       <Sidebar toggle={toggle} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/topMovies" element={<TopMovies />} />
+        <Route path="/topMovies" element={<TopMovies />}>
+          {/* <Route path="top250" element={<Top250Movies />} />
+          <Route path="mostPopular" element={<MostPopularMovies />} /> */}
+        </Route>
         <Route path="/topSeries" element={<TopTvSeries />} />
         <Route path="/about" element={<About />} />
         <Route path="/search" element={<Search />} />

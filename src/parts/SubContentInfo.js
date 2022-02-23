@@ -106,7 +106,7 @@ const ShowMoreReviews = ({ reviews }) => {
                           {review.date}
                         </div>
                         <Star
-                          value={Number(review.rate / 2)}
+                          value={Number(review.rate) / 2}
                           width={16}
                           height={16}
                           spacing={4}
