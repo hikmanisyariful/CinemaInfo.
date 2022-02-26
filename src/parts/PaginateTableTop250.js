@@ -1,12 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
-import TableContentCard from "./TableContentCard";
+import TableTop250 from "./TableTop250";
 
-export default function PaginatedMovies({
-  itemsPerPage,
-  items,
-  currentParams
-}) {
+export default function PaginateTableTop250({ itemsPerPage, items }) {
   // We start with an empty list of items.
   const [currentItems, setCurrentItems] = useState(null);
   const [pageCount, setPageCount] = useState(0);
@@ -38,11 +34,7 @@ export default function PaginatedMovies({
 
   return (
     <div className="row mt-5">
-      <TableContentCard
-        currentItems={currentItems}
-        currentParams={currentParams}
-        // refScrollTop={refScrollTop}
-      />
+      <TableTop250 currentItems={currentItems} />
       <ReactPaginate
         // containerClassName="pagination"
         className="pagination justify-content-center"
@@ -63,8 +55,6 @@ export default function PaginatedMovies({
         previousLabel="< previous"
         renderOnZeroPageCount={null}
       />
-
-      {/* <MoviesSearch currentItems={currentItems} /> */}
     </div>
   );
 }

@@ -22,7 +22,11 @@ export default function Search() {
         </div>
       </div>
       <div className="row">
-        <PaginatedMovies itemsPerPage={12} items={searchPage.movies} />
+        {searchPage.movies ? (
+          <PaginatedMovies itemsPerPage={12} items={searchPage.movies} />
+        ) : (
+          <PaginatedMovies itemsPerPage={12} items={searchPage.defaultMovies} />
+        )}
       </div>
       <Footer />
     </div>

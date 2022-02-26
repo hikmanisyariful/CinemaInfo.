@@ -64,8 +64,8 @@ export default function Hero({
                 className="btn button-secondary"
                 isBlock
                 href={`/movie/${heroSection.id}`}
-                // onClick={() => handleInfoDetails(heroSection.id)}
-                onClick={() => handleInfoDetails("tt6467266")}
+                onClick={() => handleInfoDetails(heroSection.id)}
+                // onClick={() => handleInfoDetails("tt6467266")}
               >
                 <div className="fill-wrap">
                   <BsInfoCircle style={{ color: "white" }} />

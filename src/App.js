@@ -2,11 +2,15 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 import "assets/scss/style.scss";
-import { handleInitialData } from "./actions/shared";
 
 // Import Pages
 import Home from "pages/Home";
 import TopMovies from "pages/TopMovies";
+import Movies from "pages/TopMovies/Movies";
+import TvSeries from "pages/TopTvSeries/TvSeries";
+import IndexRouteMovie from "pages/TopMovies/IndexRouteMovie";
+import IndexRouteTvSeries from "pages/TopTvSeries/IndexRouteTvSeries";
+
 import TopTvSeries from "pages/TopTvSeries";
 import About from "pages/About";
 import Search from "pages/Search";
@@ -18,6 +22,8 @@ import NameId from "pages/NameId";
 import Header from "parts/Header";
 import Sidebar from "parts/Sidebar";
 
+import { handleInitialData, handleDataMoviesSeries } from "./actions/shared";
+
 function App() {
   const dispatch = useDispatch();
 
@@ -28,6 +34,7 @@ function App() {
 
   useEffect(() => {
     // dispatch(handleInitialData());
+    dispatch(handleDataMoviesSeries());
   }, [dispatch]);
 
   useEffect(() => {
@@ -45,10 +52,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/topMovies" element={<TopMovies />}>
-          {/* <Route path="top250" element={<Top250Movies />} />
-          <Route path="mostPopular" element={<MostPopularMovies />} /> */}
+          <Route index element={<IndexRouteMovie />} />
+          <Route path=":category" element={<Movies />} />
         </Route>
-        <Route path="/topSeries" element={<TopTvSeries />} />
+        <Route path="/topSeries" element={<TopTvSeries />}>
+          <Route index element={<IndexRouteTvSeries />} />
+          <Route path=":category" element={<TvSeries />} />
+        </Route>
         <Route path="/about" element={<About />} />
         <Route path="/search" element={<Search />} />
         <Route path="/profile" element={<Profile />} />

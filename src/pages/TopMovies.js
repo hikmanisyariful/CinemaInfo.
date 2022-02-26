@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
+import { Outlet } from "react-router-dom";
 import NavigateTopSection from "parts/NavigateTopSection";
 import Footer from "parts/Footer";
-import PaginatedTables from "parts/PaginatedTables";
-import { topMovieSeries } from "assets/DummyData/topMoviePage";
 
 export default function TopMovies() {
   useEffect(() => {
@@ -11,8 +10,8 @@ export default function TopMovies() {
 
   return (
     <div className="container" style={{ marginTop: 100 }}>
-      <NavigateTopSection />
-      <PaginatedTables itemsPerPage={10} items={topMovieSeries.mostPopular} />
+      <NavigateTopSection currentPage={"topMovies"} />
+      <Outlet />
       <Footer />
     </div>
   );

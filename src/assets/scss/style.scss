@@ -10,6 +10,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Tourney:wght@200;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Wallpoet&display=swap');
 
 @import "swiper/scss";
 @import "swiper/scss/navigation";
@@ -234,6 +235,7 @@ footer {
     background: $black;
     opacity: 80%;
   }
+
   &:hover {
     .background-posters {
       // display: inline;
@@ -247,6 +249,7 @@ footer {
 .button-hover {
   background: $white;
   color: $black;
+
   &:hover {
     background: $black;
     color: $white;
@@ -303,4 +306,16 @@ footer {
     height: 700px;
     width: 100%;
   }
+}
+
+.font-wallpoet {
+  font-family: 'Wallpoet', cursive;
+  color: $yellow;
+  font-size: 36px;
+  font-weight: 200;
+}
+
+.font-audiow {
+  font-family: 'Audiowide', cursive;
+  font-size: 42px;
 }

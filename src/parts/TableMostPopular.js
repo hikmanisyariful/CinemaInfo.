@@ -8,13 +8,11 @@ import {
 import Star from "elements/Star";
 import Button from "elements/Button";
 
-export default function TableContentCard({ currentItems, refScrollTop }) {
+export default function TableMostPopular({ currentItems }) {
   const navigate = useNavigate();
-
   const handleInfoDetails = movieId => {
     navigate(`/movie/${movieId}`);
   };
-
   return (
     <>
       <table className="table table-hover mt-5 fixed_header">
@@ -53,8 +51,11 @@ export default function TableContentCard({ currentItems, refScrollTop }) {
         <tbody id="overflowTBody">
           {currentItems &&
             currentItems.map((movie, index) => {
-              const getUpDown = movie.rankUpDown.slice(0, 1);
-              const isUpDown = getUpDown === "-" ? false : true;
+              let getUpDown = movie.rankUpDown
+                ? movie.rankUpDown.slice(0, 1)
+                : "";
+              let isUpDown = getUpDown === "-" ? false : true;
+
               return (
                 <tr key={`TopMovie-${index}-${movie.id}`}>
                   <th className="text-center col-2">
@@ -124,7 +125,7 @@ export default function TableContentCard({ currentItems, refScrollTop }) {
                       <Button
                         className="btn button-secondary"
                         isBlock
-                        onClick={() => handleInfoDetails("tt6467266")}
+                        onClick={() => handleInfoDetails(movie.id)}
                       >
                         <div className="fill-wrap">
                           <BsInfoCircle style={{ color: "white" }} />
