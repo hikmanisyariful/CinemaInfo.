@@ -1,11 +1,59 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "elements/Button";
+import SelectSort from "parts/SelectSort";
+import { handleSortChoice } from "actions/sortChoice";
 
 export default function NavigateTopSection({ currentPage }) {
   const params = useParams();
+  const dispatch = useDispatch();
 
-  const resetSortFeature = () => {};
+  const [value, setValue] = useState("topRank");
+
+  const dataMovieOrSeries = useSelector(
+    state => state[`${currentPage}Page`][params.category]
+  );
+
+  const resetSortFeature = () => {
+    setValue("topRank");
+  };
+
+  const handleChange = event => {
+    setValue(event.target.value);
+  };
+
+  useEffect(() => {
+    let newData;
+    if (value === "topRank") {
+      newData =
+        dataMovieOrSeries && dataMovieOrSeries.sort((a, b) => a.rank - b.rank);
+    } else if (value === "latestYear") {
+      newData =
+        dataMovieOrSeries && dataMovieOrSeries.sort((a, b) => b.year - a.year);
+    } else if (value === "oldestYear") {
+      newData =
+        dataMovieOrSeries && dataMovieOrSeries.sort((a, b) => a.year - b.year);
+    } else if (value === "highestRate") {
+      newData =
+        dataMovieOrSeries &&
+        dataMovieOrSeries.sort((a, b) => b.imDbRating - a.imDbRating);
+    } else if (value === "lowestRate") {
+      newData =
+        dataMovieOrSeries &&
+        dataMovieOrSeries.sort((a, b) => a.imDbRating - b.imDbRating);
+    }
+
+    if (newData) {
+      dispatch(
+        handleSortChoice({
+          childRoute: params.category,
+          parentRoute: currentPage,
+          sortData: newData
+        })
+      );
+    }
+  }, [value]);
 
   return (
     <div className="row h-100 align-items-end">
@@ -35,22 +83,7 @@ export default function NavigateTopSection({ currentPage }) {
       </div>
 
       {params.category && (
-        <div className="col-auto pb-1">
-          <div className="row bg-light rounded">
-            <div className="col-auto text-black pt-2">Sort by :</div>
-            <div className="col-auto">
-              <select
-                className="form-select rounded"
-                aria-label="Default select example"
-              >
-                <option value="1">Top Rank</option>
-                <option value="2">Lowest Rank</option>
-                <option value="3">Latest Year</option>
-                <option value="3">Oldest Year</option>
-              </select>
-            </div>
-          </div>
-        </div>
+        <SelectSort value={value} handleChange={handleChange} />
       )}
 
       {currentPage === "topMovies" && (

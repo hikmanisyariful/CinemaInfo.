@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import TableTop250 from "./TableTop250";
 
-export default function PaginateTableTop250({ itemsPerPage, items }) {
+export default function PaginateTableTop250({
+  itemsPerPage,
+  items,
+  isUpdated
+}) {
   // We start with an empty list of items.
   const [currentItems, setCurrentItems] = useState(null);
   const [pageCount, setPageCount] = useState(0);
@@ -10,13 +14,22 @@ export default function PaginateTableTop250({ itemsPerPage, items }) {
   // following the API or data you're working with.
   const [itemOffset, setItemOffset] = useState(0);
 
+  // useEffect(() => {
+  //   console.log("UPDATE ITEMS");
+  //   if (currentItems) {
+  //     if (currentItems[0].id !== items[0].id) {
+  //       setCurrentItems(items.slice(0, itemsPerPage));
+  //     }
+  //   }
+  // }, [isUpdated]);
+
   useEffect(() => {
     // Fetch items from another resources.
     const endOffset = itemOffset + itemsPerPage;
     console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     setCurrentItems(items.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(items.length / itemsPerPage));
-  }, [itemOffset, itemsPerPage, items]);
+  }, [itemOffset, itemsPerPage, isUpdated]);
 
   // Invoke when user click to request another page.
   const handlePageClick = event => {

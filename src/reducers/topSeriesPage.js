@@ -1,23 +1,23 @@
 import {
-  RECEIVE_DATA_MOVIES,
-  UPDATE_DATA_MOST_POPULAR_MOVIES,
-  UPDATE_DATA_TOP_250_MOVIES
-} from "actions/topMoviesPage";
+  RECEIVE_DATA_TV_SERIES,
+  UPDATE_DATA_MOST_POPULAR_SERIES,
+  UPDATE_DATA_TOP_250_SERIES
+} from "actions/topTvSeriesPage";
 
-export default function topMoviesPage(state = {}, action) {
+export default function topSeriesPage(state = {}, action) {
   switch (action.type) {
-    case RECEIVE_DATA_MOVIES:
+    case RECEIVE_DATA_TV_SERIES:
       return {
         ...state,
         mostPopular: action.payload.mostPopular,
         top250: action.payload.top250
       };
-    case UPDATE_DATA_MOST_POPULAR_MOVIES:
+    case UPDATE_DATA_MOST_POPULAR_SERIES:
       return {
         ...state,
         mostPopular: action.payload
       };
-    case UPDATE_DATA_TOP_250_MOVIES:
+    case UPDATE_DATA_TOP_250_SERIES:
       return {
         ...state,
         top250: action.payload

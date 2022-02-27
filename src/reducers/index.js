@@ -4,7 +4,7 @@ import movieIDPage from "./movieIDPage";
 import nameIdPage from "./nameIdPage";
 import searchPage from "./searchPage";
 import topMoviesPage from "./topMoviesPage";
-import topTvSeriesPage from "./topTvSeriesPage";
+import topSeriesPage from "./topSeriesPage";
 
 export default combineReducers({
   homePages,
@@ -12,5 +12,5 @@ export default combineReducers({
   nameIdPage,
   searchPage,
   topMoviesPage,
-  topTvSeriesPage
+  topSeriesPage
 });
