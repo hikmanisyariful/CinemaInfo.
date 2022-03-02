@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import MoviesSearch from "parts/MoviesSearch";
 
-export default function PaginatedMovies({ itemsPerPage, items }) {
+export default function PaginatedMovies({ itemsPerPage, items, isUpdated }) {
   // We start with an empty list of items.
   const [currentItems, setCurrentItems] = useState(null);
   const [pageCount, setPageCount] = useState(0);
@@ -16,7 +16,7 @@ export default function PaginatedMovies({ itemsPerPage, items }) {
     console.log(`Loading items from ${itemOffset} to ${endOffset}`);
     setCurrentItems(items.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(items.length / itemsPerPage));
-  }, [itemOffset, itemsPerPage]);
+  }, [itemOffset, itemsPerPage, isUpdated]);
 
   // Invoke when user click to request another page.
   const handlePageClick = event => {

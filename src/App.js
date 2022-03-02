@@ -33,7 +33,7 @@ function App() {
   };
 
   useEffect(() => {
-    // dispatch(handleInitialData());
+    dispatch(handleInitialData());
     dispatch(handleDataMoviesSeries());
   }, [dispatch]);
 
