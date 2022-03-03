@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { useSearchParams, createSearchParams } from "react-router-dom";
 import { FiSearch } from "react-icons/fi";
 import { handleSearchMovies } from "actions/searchPage";
 
@@ -8,6 +9,10 @@ export default function FormSearch() {
 
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("title");
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  // const categorySearch = searchParams.get("category");
+  // const valueSearch = searchParams.get("value");
 
   const handleSearchValue = e => {
     setSearch(e.target.value);
@@ -19,7 +24,7 @@ export default function FormSearch() {
 
   const handleSubmitSearch = e => {
     e.preventDefault();
-    console.log(search, category);
+    setSearchParams(createSearchParams({ category: category, value: search }));
     dispatch(handleSearchMovies({ search, category }));
   };
   return (

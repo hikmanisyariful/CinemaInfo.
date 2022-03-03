@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import {
+  useParams,
+  useSearchParams,
+  createSearchParams
+} from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Button from "elements/Button";
 import SelectSort from "parts/SelectSort";
@@ -11,14 +15,20 @@ export default function NavigateTopSection({ currentPage }) {
 
   const [value, setValue] = useState("topRank");
 
+  // useSearchParams route
+  const [searchParams, setSearchParams] = useSearchParams();
+  const sortChoice = searchParams.get("sortBy");
+
   const dataMovieOrSeries = useSelector(
     state => state[`${currentPage}Page`][params.category]
   );
 
   const resetSortFeature = () => {
     setValue("topRank");
+
     let newData =
       dataMovieOrSeries && dataMovieOrSeries.sort((a, b) => a.rank - b.rank);
+    console.log(newData);
     dispatch(
       handleSortChoice({
         childRoute: params.category,
@@ -30,6 +40,7 @@ export default function NavigateTopSection({ currentPage }) {
 
   const handleChange = event => {
     setValue(event.target.value);
+    setSearchParams(createSearchParams({ sortBy: event.target.value }));
   };
 
   useEffect(() => {
@@ -92,7 +103,11 @@ export default function NavigateTopSection({ currentPage }) {
       </div>
 
       {params.category && (
-        <SelectSort value={value} handleChange={handleChange} />
+        <SelectSort
+          value={value}
+          handleChange={handleChange}
+          isChecked={sortChoice}
+        />
       )}
 
       {currentPage === "topMovies" && (

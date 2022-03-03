@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-export default function SelectSort({ value, handleChange }) {
+export default function SelectSort({ value, handleChange, isChecked }) {
   const params = useParams();
 
   return (
@@ -15,6 +15,7 @@ export default function SelectSort({ value, handleChange }) {
             value={value}
             onChange={e => handleChange(e)}
             type="submit"
+            checked={isChecked === value}
           >
             <option value="topRank">Top Rank</option>
             <option value="latestYear">Latest Year</option>
