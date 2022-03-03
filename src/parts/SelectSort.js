@@ -3,7 +3,6 @@ import { useParams } from "react-router-dom";
 
 export default function SelectSort({ value, handleChange }) {
   const params = useParams();
-  console.log(params.category);
 
   return (
     <div className="col-auto pb-1">

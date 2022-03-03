@@ -17,6 +17,15 @@ export default function NavigateTopSection({ currentPage }) {
 
   const resetSortFeature = () => {
     setValue("topRank");
+    let newData =
+      dataMovieOrSeries && dataMovieOrSeries.sort((a, b) => a.rank - b.rank);
+    dispatch(
+      handleSortChoice({
+        childRoute: params.category,
+        parentRoute: currentPage,
+        sortData: newData
+      })
+    );
   };
 
   const handleChange = event => {
