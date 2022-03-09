@@ -53,11 +53,11 @@ export default function Header({ toggle }) {
                   Top Tv Series
                 </Button>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Button className="nav-link" type="link" href="/about">
                   About
                 </Button>
-              </li>
+              </li> */}
             </ul>
           </div>
 
@@ -69,11 +69,11 @@ export default function Header({ toggle }) {
                   <p className="text-icon">Search</p>
                 </Button>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <Button className="nav-icon" type="link" href="/profile">
                   <img src={IconProfile} alt="Look at profile" />
                 </Button>
-              </li>
+              </li> */}
             </ul>
           </div>
         </nav>
