@@ -4,10 +4,10 @@ import FormSearch from "parts/FormSearch";
 import PaginatedMovies from "parts/PaginatedMovies";
 import Footer from "parts/Footer";
 
-import { searchPage } from "assets/DummyData/searchPage";
+// import { searchPage } from "assets/DummyData/searchPage";
 
 export default function Search() {
-  // const searchPage = useSelector(state => state.searchPage);
+  const searchPage = useSelector(state => state.searchPage);
   const [isUpdated, setIsUpdated] = useState(false);
 
   useEffect(() => {

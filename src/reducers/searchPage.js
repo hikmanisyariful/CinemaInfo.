@@ -1,6 +1,10 @@
 import { SEARCH_MOVIES, SET_DEFAULT_MOVIES_SEARCH } from "actions/searchPage";
+import { homePages } from "assets/DummyData/homePages";
 
-export default function searchPage(state = {}, action) {
+export default function searchPage(
+  state = { defaultMovies: homePages.nowPlaying },
+  action
+) {
   switch (action.type) {
     case SEARCH_MOVIES:
       return {
