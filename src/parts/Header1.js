@@ -50,7 +50,11 @@ export default function Header1({ toggle }) {
         <nav className="navbar navbar-expand-lg py-3">
           <div className="container-fluid justify-content-between px-0">
             <IconText />
-            <OffCanvasRight placement="end" className="nav-offcanvas" />
+            <OffCanvasRight
+              placement="end"
+              className="nav-offcanvas"
+              routesHeader={routesHeader}
+            />
             <div className="justify-content-between w-100 ms-5 me-1 nav-full">
               <ul className="navbar-nav">
                 {routesHeader.map((routeElement, index) => {
@@ -120,7 +124,9 @@ export default function Header1({ toggle }) {
                     <NavDropdown.Item>Collection</NavDropdown.Item>
                   </LinkContainer>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item to="/logout">Logout</NavDropdown.Item>
+                  <LinkContainer to="/">
+                    <NavDropdown.Item>Logout</NavDropdown.Item>
+                  </LinkContainer>
                 </NavDropdown>
               </ul>
             </div>
