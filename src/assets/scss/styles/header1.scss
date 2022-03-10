@@ -1,0 +1,33 @@
+header {
+  margin-top: -80px;
+
+  &.scroll-active-header {
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+
+  &.scroll-transition {
+    transition: background-color 0.3s ease-in;
+  }
+
+  .navbar {
+    @media screen and (min-width: $extraLarge) {
+      .nav-full {
+        display: flex;
+      }
+
+      .nav-offcanvas {
+        display: none
+      }
+    }
+
+    @media screen and (max-width: $extraLarge) {
+      .nav-full {
+        display: none;
+      }
+
+      .nav-offcanvas {
+        display: inline
+      }
+    }
+  }
+}

@@ -12,13 +12,22 @@ header {
   // Dynamically update SCSS
   background-color: var(--background-color);
 
+  &.scroll-active-header {
+    background-color: rgba(0, 0, 0, 0.9);
+
+  }
+
+  &.scroll-transition {
+    transition: background-color 0.5s ease-in-out;
+  }
+
   @media screen and (max-width: $small) {
     background-color: rgba(0, 0, 0, 0.9);
   }
 
   .navbar {
     position: relative;
-    height: 80px;
+height: 80px;
 
     @media screen and (max-width: $small) {
       margin-left: 10px;
@@ -82,6 +91,7 @@ header {
         .text-icon {
           display: none;
         }
+
         a {
           &.nav-icon {
             margin-left: 2rem;
@@ -95,6 +105,7 @@ header {
                 padding-left: 10px;
                 font-size: 1.125rem;
               }
+
               text-decoration: none;
             }
           }

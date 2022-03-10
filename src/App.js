@@ -19,7 +19,7 @@ import MovieId from "pages/MovieId";
 import NameId from "pages/NameId";
 
 // Import Component parts
-import Header from "parts/Header";
+import Header from "parts/Header1";
 import Sidebar from "parts/Sidebar";
 
 import { handleInitialData, handleDataMoviesSeries } from "./actions/shared";
@@ -48,7 +48,7 @@ function App() {
   return (
     <div className="App">
       <Header toggle={toggle} />
-      <Sidebar toggle={toggle} />
+      {/* <Sidebar toggle={toggle} /> */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/topMovies" element={<TopMovies />}>

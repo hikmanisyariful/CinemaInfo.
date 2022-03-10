@@ -75,9 +75,11 @@
 $small: 576px;
 $medium: 868px;
 $large: 992px;
+$extraLarge: 1200px;
 
 // Custom scss
-@import "styles/header.scss";
+// @import "styles/header.scss";
+@import "styles/header1.scss";
 @import "styles/sidebar.scss";
 @import "styles/brandIconText.scss";
 @import "styles/hero.scss";

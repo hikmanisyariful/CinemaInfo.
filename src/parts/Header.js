@@ -63,17 +63,21 @@ export default function Header({ toggle }) {
 
           <div className="main-navbar">
             <ul className="navbar-nav icon">
-              <li className="nav-item">
+              <li className="nav-item" style={{ marginTop: "7px" }}>
                 <Button className="nav-icon" type="link" href="/search">
                   <img src={IconSearch} alt="search movies" />
                   <p className="text-icon">Search</p>
                 </Button>
               </li>
-              {/* <li className="nav-item">
-                <Button className="nav-icon" type="link" href="/profile">
-                  <img src={IconProfile} alt="Look at profile" />
+              <li className="nav-item">
+                <Button className="btn">
+                  <img
+                    src={IconProfile}
+                    alt="Look at profile"
+                    style={{ color: "black" }}
+                  />
                 </Button>
-              </li> */}
+              </li>
             </ul>
           </div>
         </nav>
