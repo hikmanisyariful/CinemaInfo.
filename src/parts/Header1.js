@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { NavDropdown } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
+
 import Button from "elements/Button";
 import IconText from "parts/IconText";
-
 import { BiSearchAlt } from "react-icons/bi";
-import { NavDropdown } from "react-bootstrap";
-import * as ReactBootstrap from "react-bootstrap";
 import OffCanvasRight from "parts/OffCanvas";
-
-// import IconSearch from "assets/images/icons/icon-search.svg";
-// import IconProfile from "assets/images/icons/profile.svg";
 
 const routesHeader = [
   {
@@ -110,11 +107,18 @@ export default function Header1({ toggle }) {
                   bg="bg-black"
                   variant="dark"
                 >
-                  <NavDropdown.Item to="/profile">Profile</NavDropdown.Item>
-                  <NavDropdown.Item to="/collection">
-                    Collection
-                  </NavDropdown.Item>
-
+                  <LinkContainer
+                    to="/profile"
+                    activeClassName="active-link-container"
+                  >
+                    <NavDropdown.Item>Profile</NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer
+                    to="/collection"
+                    activeClassName="active-link-container"
+                  >
+                    <NavDropdown.Item>Collection</NavDropdown.Item>
+                  </LinkContainer>
                   <NavDropdown.Divider />
                   <NavDropdown.Item to="/logout">Logout</NavDropdown.Item>
                 </NavDropdown>
