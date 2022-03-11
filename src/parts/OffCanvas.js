@@ -7,11 +7,21 @@ import IconText from "parts/IconText";
 import { BiSearchAlt } from "react-icons/bi";
 import { MdManageAccounts, MdCollectionsBookmark } from "react-icons/md";
 
-export default function OffCanvasRight({ name, routesHeader, ...props }) {
+export default function OffCanvasRight({
+  name,
+  routesHeader,
+  handleLogout,
+  ...props
+}) {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const handleCloseLogout = () => {
+    setShow(false);
+    handleLogout();
+  };
 
   return (
     <div {...props}>
@@ -105,7 +115,7 @@ export default function OffCanvasRight({ name, routesHeader, ...props }) {
                 <li className="nav-item mx-3 w-50 my-5">
                   <NavLink
                     to="/"
-                    onClick={handleClose}
+                    onClick={handleCloseLogout}
                     type="link"
                     className="btn btn-light nav-link px-4 py-1 mt-1 text-black"
                   >

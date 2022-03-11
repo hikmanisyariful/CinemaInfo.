@@ -44,7 +44,7 @@ export default function Login() {
       setPassword("");
       setTimeout(function() {
         setShowMessage(false);
-      }, 10000);
+      }, 3000);
     }
   };
 

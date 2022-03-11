@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { NavLink, useNavigate } from "react-router-dom";
 import { NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
@@ -7,6 +8,7 @@ import Button from "elements/Button";
 import IconText from "parts/IconText";
 import { BiSearchAlt } from "react-icons/bi";
 import OffCanvasRight from "parts/OffCanvas";
+import { setAuthedUser } from "actions/users";
 
 const routesHeader = [
   {
@@ -23,8 +25,10 @@ const routesHeader = [
   }
 ];
 
-export default function Header1({ toggle }) {
+export default function Header1() {
   const [scrollNav, setScrollNav] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const changeNav = () => {
     if (window.scrollY >= 80) {
@@ -37,6 +41,11 @@ export default function Header1({ toggle }) {
   useEffect(() => {
     window.addEventListener("scroll", changeNav);
   }, [scrollNav]);
+
+  const handleLogout = () => {
+    dispatch(setAuthedUser(null));
+    navigate("/");
+  };
 
   return (
     <header
@@ -54,6 +63,7 @@ export default function Header1({ toggle }) {
               placement="end"
               className="nav-offcanvas"
               routesHeader={routesHeader}
+              handleLogout={handleLogout}
             />
             <div className="justify-content-between w-100 ms-5 me-1 nav-full">
               <ul className="navbar-nav">
@@ -124,7 +134,7 @@ export default function Header1({ toggle }) {
                     <NavDropdown.Item>Collection</NavDropdown.Item>
                   </LinkContainer>
                   <NavDropdown.Divider />
-                  <LinkContainer to="/">
+                  <LinkContainer to="/" onClick={handleLogout}>
                     <NavDropdown.Item>Logout</NavDropdown.Item>
                   </LinkContainer>
                 </NavDropdown>
