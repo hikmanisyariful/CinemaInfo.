@@ -17,6 +17,7 @@ import Search from "pages/Search";
 import Profile from "pages/Profile";
 import MovieId from "pages/MovieId";
 import NameId from "pages/NameId";
+import Login from "pages/Login";
 
 // Import Component parts
 import Header from "parts/Header1";
@@ -51,6 +52,7 @@ function App() {
       {/* <Sidebar toggle={toggle} /> */}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/topMovies" element={<TopMovies />}>
           <Route index element={<IndexRouteMovie />} />
           <Route path=":category" element={<Movies />} />
