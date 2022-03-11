@@ -1,26 +1,51 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { setAuthedUser } from "actions/users";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [validated, setValidated] = useState(false);
+  const [message, setMessage] = useState({ text: "", class: "", info: "" });
+  const [showMessage, setShowMessage] = useState(false);
   const users = useSelector(state => state.users.users);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleSubmit = event => {
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
+    event.preventDefault();
+
+    function checkUser(user) {
+      if (user.email === email && user.password === password) {
+        return user;
+      }
     }
 
-    setValidated(true);
-    console.log(email, password);
-    console.log(users);
+    const existedUser = Object.values(users).filter(checkUser);
+    const isExisted = existedUser.length === 1 ? true : false;
 
-
+    if (isExisted) {
+      dispatch(setAuthedUser(email));
+      // setMessage({
+      //   text: "Your login is successful",
+      //   info: "success",
+      //   className: "alert alert-success"
+      // });
+      // setShowMessage(true);
+      navigate("/");
+    } else {
+      setMessage({
+        text: "Your login is failed. Please check again your right data!",
+        info: "failed",
+        className: "alert alert-danger"
+      });
+      setShowMessage(true);
+      setEmail("");
+      setPassword("");
+      setTimeout(function() {
+        setShowMessage(false);
+      }, 10000);
+    }
   };
 
   const handleChangeEmail = event => {
@@ -33,11 +58,13 @@ export default function Login() {
 
   return (
     <div className="container" style={{ marginTop: 150 }}>
+      {showMessage && (
+        <div className={`${message.className}`}>{message.text}</div>
+      )}
       <div className="row justify-content-center">
         <div className="col-9 col-sm-8 col-md-6 col-lg-5 col-xl-4 border border-white rounded p-4">
           <p className="fs-3 text-center mb-5">Login</p>
-          {/* <form className="needs-validation"> */}
-          <Form noValidate validated={validated} onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label className="form-label">Email address</label>
               <div className="input-group has-validation">
@@ -68,11 +95,14 @@ export default function Login() {
                 </div>
               </div>
             </div>
-            <button type="submit" className={`btn button-primary w-100 mb-3`}>
+            <button
+              type="submit"
+              className={`btn button-primary w-100 mb-3 ${email === "" &&
+                "disabled"} ${password === "" && "disabled"}`}
+            >
               Submit
             </button>
-          </Form>
-          {/* </form> */}
+          </form>
         </div>
       </div>
     </div>
