@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Form } from "react-bootstrap";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [validated, setValidated] = useState(false);
+  const users = useSelector(state => state.users.users);
+  const dispatch = useDispatch()
 
   const handleSubmit = event => {
     const form = event.currentTarget;
@@ -15,6 +18,9 @@ export default function Login() {
 
     setValidated(true);
     console.log(email, password);
+    console.log(users);
+
+
   };
 
   const handleChangeEmail = event => {
@@ -62,7 +68,7 @@ export default function Login() {
                 </div>
               </div>
             </div>
-            <button type="submit" className="btn button-primary w-100 mb-3">
+            <button type="submit" className={`btn button-primary w-100 mb-3`}>
               Submit
             </button>
           </Form>
