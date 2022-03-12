@@ -56,8 +56,8 @@ export default function Login() {
         <div className={`${message.className}`}>{message.text}</div>
       )}
       <div className="row justify-content-center">
-        <div className="col-9 col-sm-8 col-md-6 col-lg-5 col-xl-4 border border-dark border-3 rounded p-4">
-          <h2 className="text-center text-light mb-5">Login</h2>
+        <div className="col-10 col-sm-8 col-md-6 col-lg-5 col-xl-4 border border-dark border-3 rounded p-4">
+          <h2 className="text-center text-light mb-5">Log In</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label className="form-label">Email address</label>

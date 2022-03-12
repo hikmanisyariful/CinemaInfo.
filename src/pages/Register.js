@@ -62,7 +62,7 @@ export default function Register() {
             <span className="text-dark">Already A Member? </span>
             <Link to="/login">Log In</Link>
           </div>
-          <form onSubmit={handleSubmit} className="row">
+          <form onSubmit={handleSubmit}>
             <div className="row mb-4">
               <div className="col-12 col-sm mb-4 mb-sm-0">
                 <label className="form-label">First Name</label>
