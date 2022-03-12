@@ -1,116 +1,39 @@
-// Style Header
 header {
-  width: 100%;
-  // margin-bottom: 50px;
-
-  // Style header fixed
-  position: sticky;
-  z-index: 999;
   margin-top: -80px;
-  top: 0;
-
-  // Dynamically update SCSS
-  background-color: var(--background-color);
 
   &.scroll-active-header {
     background-color: rgba(0, 0, 0, 0.9);
-
   }
 
   &.scroll-transition {
-    transition: background-color 0.5s ease-in-out;
-  }
-
-  @media screen and (max-width: $small) {
-    background-color: rgba(0, 0, 0, 0.9);
+    transition: background-color 0.3s ease-in;
   }
 
   .navbar {
-    position: relative;
-height: 80px;
-
-    @media screen and (max-width: $small) {
-      margin-left: 10px;
-    }
-
-    .icon-wrapper {
-      display: none;
-
-      @media screen and (max-width: $small) {
-        display: var(--display-faBars);
-        position: absolute;
-        top: 0;
-        right: 0;
-        transform: translate(-50%, 30%);
-        font-size: 1.8rem;
-        cursor: pointer;
-        color: $white;
+    @media screen and (min-width: $extraLarge) {
+      .nav-full {
+        display: flex;
       }
-    }
 
-    .main-navbar,
-    .left-navbar {
-      display: flex;
-
-      @media screen and (max-width: $small) {
+      .nav-offcanvas {
         display: none;
       }
     }
 
-    .collapse {
-      margin-left: 70px;
-    }
+    @media screen and (max-width: $extraLarge) {
+      .nav-full {
+        display: none;
+      }
 
-    ul.navbar-nav {
-      li.nav-item {
-        &.active {
-          a.nav-link {
-            color: $primary;
-            font-weight: 600;
-          }
-        }
-
-        a {
-          &.nav-link {
-            color: $white;
-            margin-left: 1rem;
-            margin-right: 2rem;
-            font-size: 1.125rem;
-            letter-spacing: 0.5px;
-
-            &:hover {
-              text-decoration: underline;
-            }
-          }
-        }
+      .nav-offcanvas {
+        display: inline;
       }
     }
 
-    ul.navbar-nav.icon {
-      li.nav-item {
-        .text-icon {
-          display: none;
-        }
-
-        a {
-          &.nav-icon {
-            margin-left: 2rem;
-            margin-right: 1rem;
-
-            &:hover {
-              .text-icon {
-                display: inline;
-                // transition: 5s transform ease-in-out;
-                color: $white;
-                padding-left: 10px;
-                font-size: 1.125rem;
-              }
-
-              text-decoration: none;
-            }
-          }
-        }
-      }
+    .active-link-container {
+      color: $yellow;
+      text-decoration: underline;
+      font-weight: 500;
     }
   }
 }

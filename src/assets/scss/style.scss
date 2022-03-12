@@ -10,7 +10,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Monoton&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Tourney:wght@200;400&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Wallpoet&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Wallpoet&display=swap");
 
 @import "swiper/scss";
 @import "swiper/scss/navigation";
@@ -78,9 +78,7 @@ $large: 992px;
 $extraLarge: 1200px;
 
 // Custom scss
-// @import "styles/header.scss";
-@import "styles/header1.scss";
-@import "styles/sidebar.scss";
+@import "styles/header.scss";
 @import "styles/brandIconText.scss";
 @import "styles/hero.scss";
 
@@ -92,17 +90,18 @@ $extraLarge: 1200px;
 }
 
 .button-primary {
-  width: 196px;
-  height: 50px;
-  left: 120px;
-  top: 605px;
+  // width: 196px;
+  // height: 50px;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  // left: 120px;
+  // top: 605px;
 
   background: #fffefe;
   border-radius: 5px;
 
   color: $black;
-
-  margin-right: 30px;
 
   &:hover {
     color: $white;
@@ -112,10 +111,13 @@ $extraLarge: 1200px;
 }
 
 .button-secondary {
-  width: 216px;
-  height: 50px;
-  left: 340px;
-  top: 605px;
+  // width: 216px;
+  // height: 50px;
+  width: 100%;
+  height: 100%;
+  padding: 12px;
+  // left: 340px;
+  // top: 605px;
 
   background: #4b4b4b;
   border-radius: 5px;
@@ -311,13 +313,13 @@ footer {
 }
 
 .font-wallpoet {
-  font-family: 'Wallpoet', cursive;
+  font-family: "Wallpoet", cursive;
   color: $yellow;
   font-size: 36px;
   font-weight: 200;
 }
 
 .font-audiow {
-  font-family: 'Audiowide', cursive;
+  font-family: "Audiowide", cursive;
   font-size: 42px;
 }

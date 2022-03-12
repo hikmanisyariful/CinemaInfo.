@@ -22,11 +22,9 @@ export default function ButtonPlayYoutube({ data }) {
         onClick={() => onShow()}
         data-bs-toggle="modal"
         data-bs-target="#youtubeTrailer"
+        // style={{ marginRight: 20 }}
       >
-        <div className="fill-wrap">
-          <FaPlay />
-          Play Trailer
-        </div>
+        <FaPlay /> <span>{" Play Trailer"}</span>
       </Button>
 
       {show && <YoutubeTrailer onHide={onHide} show={show} data={data} />}
