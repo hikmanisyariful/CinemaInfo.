@@ -11,6 +11,7 @@ export default function OffCanvasRight({
   name,
   routesHeader,
   handleLogout,
+  authedUser,
   ...props
 }) {
   const [show, setShow] = useState(false);
@@ -78,62 +79,65 @@ export default function OffCanvasRight({
                   <BiSearchAlt className="fs-3" /> Search
                 </NavLink>
               </li>
-              <>
-                <li className="nav-item my-2">
-                  <NavLink
-                    to="/profile"
-                    className="nav-link mx-3"
-                    style={({ isActive }) => {
-                      return {
-                        fontWeight: isActive ? "500" : "400",
-                        textDecoration: isActive ? "underline" : "none",
-                        color: isActive ? "#d0a33c" : ""
-                      };
-                    }}
-                    onClick={handleClose}
-                  >
-                    <MdManageAccounts className="fs-3 pb-1" /> Profile
-                  </NavLink>
-                </li>
-                <li className="nav-item my-2">
-                  <NavLink
-                    to="/collection"
-                    className="nav-link mx-3"
-                    style={({ isActive }) => {
-                      return {
-                        fontWeight: isActive ? "500" : "400",
-                        textDecoration: isActive ? "underline" : "none",
-                        color: isActive ? "#d0a33c" : ""
-                      };
-                    }}
-                    onClick={handleClose}
-                  >
-                    <MdCollectionsBookmark className="fs-3 pb-1" /> Collection
-                  </NavLink>
-                </li>
 
+              {authedUser ? (
+                <>
+                  <li className="nav-item my-2">
+                    <NavLink
+                      to="/profile"
+                      className="nav-link mx-3"
+                      style={({ isActive }) => {
+                        return {
+                          fontWeight: isActive ? "500" : "400",
+                          textDecoration: isActive ? "underline" : "none",
+                          color: isActive ? "#d0a33c" : ""
+                        };
+                      }}
+                      onClick={handleClose}
+                    >
+                      <MdManageAccounts className="fs-3 pb-1" /> Profile
+                    </NavLink>
+                  </li>
+                  <li className="nav-item my-2">
+                    <NavLink
+                      to="/collection"
+                      className="nav-link mx-3"
+                      style={({ isActive }) => {
+                        return {
+                          fontWeight: isActive ? "500" : "400",
+                          textDecoration: isActive ? "underline" : "none",
+                          color: isActive ? "#d0a33c" : ""
+                        };
+                      }}
+                      onClick={handleClose}
+                    >
+                      <MdCollectionsBookmark className="fs-3 pb-1" /> Collection
+                    </NavLink>
+                  </li>
+
+                  <li className="nav-item mx-3 w-50 my-5">
+                    <NavLink
+                      to="/"
+                      onClick={handleCloseLogout}
+                      type="link"
+                      className="btn btn-light nav-link px-4 py-1 mt-1 text-black"
+                    >
+                      Logout
+                    </NavLink>
+                  </li>
+                </>
+              ) : (
                 <li className="nav-item mx-3 w-50 my-5">
                   <NavLink
-                    to="/"
-                    onClick={handleCloseLogout}
+                    to="/login"
+                    onClick={handleClose}
                     type="link"
                     className="btn btn-light nav-link px-4 py-1 mt-1 text-black"
                   >
-                    Logout
+                    Login
                   </NavLink>
                 </li>
-              </>
-
-              <li className="nav-item mx-3 w-50 my-5">
-                <NavLink
-                  to="/login"
-                  onClick={handleClose}
-                  type="link"
-                  className="btn btn-light nav-link px-4 py-1 mt-1 text-black"
-                >
-                  Login
-                </NavLink>
-              </li>
+              )}
             </ul>
           </div>
         </Offcanvas.Body>

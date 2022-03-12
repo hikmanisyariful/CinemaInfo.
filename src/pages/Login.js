@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { setAuthedUser } from "actions/users";
 
 export default function Login() {
@@ -26,12 +26,6 @@ export default function Login() {
 
     if (isExisted) {
       dispatch(setAuthedUser(email));
-      // setMessage({
-      //   text: "Your login is successful",
-      //   info: "success",
-      //   className: "alert alert-success"
-      // });
-      // setShowMessage(true);
       navigate("/");
     } else {
       setMessage({
@@ -57,13 +51,13 @@ export default function Login() {
   };
 
   return (
-    <div className="container" style={{ marginTop: 150 }}>
+    <div className="container" style={{ marginTop: 150, marginBottom: 80 }}>
       {showMessage && (
         <div className={`${message.className}`}>{message.text}</div>
       )}
       <div className="row justify-content-center">
-        <div className="col-9 col-sm-8 col-md-6 col-lg-5 col-xl-4 border border-white rounded p-4">
-          <p className="fs-3 text-center mb-5">Login</p>
+        <div className="col-9 col-sm-8 col-md-6 col-lg-5 col-xl-4 border border-dark border-3 rounded p-4">
+          <h2 className="text-center text-light mb-5">Login</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
               <label className="form-label">Email address</label>
@@ -102,6 +96,11 @@ export default function Login() {
             >
               Submit
             </button>
+            <div className="border-bottom border-white border-2 my-4"></div>
+            <span className="text-center text-dark">
+              Don't have an account?{" "}
+            </span>
+            <Link to="/register">Register</Link>
           </form>
         </div>
       </div>

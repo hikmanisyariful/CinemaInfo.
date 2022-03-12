@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useNavigate } from "react-router-dom";
 import { NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
@@ -29,6 +29,7 @@ export default function Header1() {
   const [scrollNav, setScrollNav] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const authedUser = useSelector(state => state.users.authedUser);
 
   const changeNav = () => {
     if (window.scrollY >= 80) {
@@ -64,6 +65,7 @@ export default function Header1() {
               className="nav-offcanvas"
               routesHeader={routesHeader}
               handleLogout={handleLogout}
+              authedUser={authedUser}
             />
             <div className="justify-content-between w-100 ms-5 me-1 nav-full">
               <ul className="navbar-nav">
@@ -106,38 +108,43 @@ export default function Header1() {
                     <BiSearchAlt className="fs-3" /> Search
                   </NavLink>
                 </li>
-                <li className="nav-item mx-3">
-                  <Button
-                    href="/login"
-                    type="link"
-                    className="btn btn-light nav-link px-4 py-1 mt-1 text-black"
+
+                {authedUser ? (
+                  <NavDropdown
+                    title="Account"
+                    className="nav-item mx-3"
+                    bg="bg-black"
+                    variant="dark"
                   >
-                    Login
-                  </Button>
-                </li>
-                <NavDropdown
-                  title="Account"
-                  className="nav-item mx-3"
-                  bg="bg-black"
-                  variant="dark"
-                >
-                  <LinkContainer
-                    to="/profile"
-                    activeClassName="active-link-container"
-                  >
-                    <NavDropdown.Item>Profile</NavDropdown.Item>
-                  </LinkContainer>
-                  <LinkContainer
-                    to="/collection"
-                    activeClassName="active-link-container"
-                  >
-                    <NavDropdown.Item>Collection</NavDropdown.Item>
-                  </LinkContainer>
-                  <NavDropdown.Divider />
-                  <LinkContainer to="/" onClick={handleLogout}>
-                    <NavDropdown.Item>Logout</NavDropdown.Item>
-                  </LinkContainer>
-                </NavDropdown>
+                    <LinkContainer
+                      to="/profile"
+                      activeClassName="active-link-container"
+                    >
+                      <NavDropdown.Item>Profile</NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer
+                      to="/collection"
+                      activeClassName="active-link-container"
+                    >
+                      <NavDropdown.Item>Collection</NavDropdown.Item>
+                    </LinkContainer>
+                    <NavDropdown.Divider />
+
+                    <NavDropdown.Item onClick={handleLogout}>
+                      Logout
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                ) : (
+                  <li className="nav-item mx-3">
+                    <Button
+                      href="/login"
+                      type="link"
+                      className="btn btn-light nav-link px-4 py-1 mt-1 text-black"
+                    >
+                      Login
+                    </Button>
+                  </li>
+                )}
               </ul>
             </div>
           </div>
