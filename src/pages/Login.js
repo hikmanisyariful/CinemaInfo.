@@ -26,7 +26,7 @@ export default function Login() {
 
     if (isExisted) {
       dispatch(setAuthedUser(email));
-      navigate("/");
+      navigate(-1);
     } else {
       setMessage({
         text: "Your login is failed. Please check again your right data!",

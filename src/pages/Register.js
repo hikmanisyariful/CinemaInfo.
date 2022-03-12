@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { addUser } from "actions/users";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser, setAuthedUser } from "actions/users";
 
 export default function Register() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const users = useSelector(state => state.users.users);
+  const [message, setMessage] = useState({ text: "", class: "", info: "" });
+  const [showMessage, setShowMessage] = useState(false);
 
   const [user, setUser] = useState({
     firstName: "",
@@ -20,12 +23,38 @@ export default function Register() {
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(addUser(user));
-    navigate("/login");
+    const isExist = Object.values(users).filter(
+      data => data.email === user.email
+    );
+
+    if (isExist.length === 0) {
+      dispatch(addUser(user));
+      dispatch(setAuthedUser(user.email));
+      navigate(-2);
+    } else {
+      setMessage({
+        text: "Your email is exists. Please correct your data!",
+        info: "failed",
+        className: "alert alert-danger"
+      });
+      setShowMessage(true);
+      setTimeout(function() {
+        setShowMessage(false);
+      }, 3000);
+
+      setUser({
+        ...user,
+        email: "",
+        password: ""
+      });
+    }
   };
 
   return (
     <div className="container" style={{ marginTop: 150, marginBottom: 80 }}>
+      {showMessage && (
+        <div className={`${message.className}`}>{message.text}</div>
+      )}
       <div className="row justify-content-center">
         <div className="border border-dark border-3 rounded p-4 col-xl-6 col-lg-8 col-md-10 col-10">
           <h2 className="mb-4 text-light">Create new account.</h2>
