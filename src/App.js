@@ -21,7 +21,7 @@ import Login from "pages/Login";
 import Register from "pages/Register";
 
 // Import Component parts
-import Header from "parts/Header1";
+import Header from "parts/Header";
 
 import { handleInitialData, handleDataMoviesSeries } from "./actions/shared";
 
@@ -38,8 +38,6 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
         <Route path="/topMovies" element={<TopMovies />}>
           <Route index element={<IndexRouteMovie />} />
           <Route path=":category" element={<Movies />} />
@@ -48,11 +46,16 @@ function App() {
           <Route index element={<IndexRouteTvSeries />} />
           <Route path=":category" element={<TvSeries />} />
         </Route>
-        <Route path="/about" element={<About />} />
-        <Route path="/search" element={<Search />} />
-        <Route path="/profile" element={<Profile />} />
         <Route path="/movie/:movieId" element={<MovieId />} />
         <Route path="/name/:nameId" element={<NameId />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+
+        {/* Private route is not handle yet. */}
+        <Route path="/profile" element={<Profile />} />
+
         <Route
           path="*"
           element={
