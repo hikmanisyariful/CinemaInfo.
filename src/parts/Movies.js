@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/scss";
@@ -11,6 +11,32 @@ import Star from "elements/Star";
 import Button from "elements/Button";
 
 export default function Movies({ movies, label, isSearch }) {
+  const [width, setWidth] = useState(window.innerWidth);
+  const [slidePerView, setSlidePerView] = useState(6);
+
+  const updateDimensions = () => {
+    setWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
+
+  useEffect(() => {
+    if (width < 576) {
+      setSlidePerView(2);
+    } else if (width < 768) {
+      setSlidePerView(3);
+    } else if (width < 992) {
+      setSlidePerView(4);
+    } else if (width < 1200) {
+      setSlidePerView(5);
+    } else {
+      setSlidePerView(6);
+    }
+  }, [width]);
+
   return (
     <div className="container" style={{ marginBottom: "50px" }}>
       {!isSearch && (
@@ -21,8 +47,8 @@ export default function Movies({ movies, label, isSearch }) {
 
       <Swiper
         className="row"
-        slidesPerView={6}
-        spaceBetween={30}
+        slidesPerView={slidePerView}
+        spaceBetween={24}
         slidesPerGroup={6}
         loopFillGroupWithBlank={true}
         navigation={true}
@@ -32,10 +58,7 @@ export default function Movies({ movies, label, isSearch }) {
       >
         {movies.map((movie, index) => {
           return (
-            <SwiperSlide
-              className="col-2"
-              key={`trending-${movie.id}-${index}`}
-            >
+            <SwiperSlide className="" key={`trending-${movie.id}-${index}`}>
               <div
                 className="card d-block justify-content-center card-movie"
                 style={{ background: "none" }}
