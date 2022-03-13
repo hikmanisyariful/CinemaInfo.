@@ -28,8 +28,10 @@ export default function Hero1({
   return (
     <div className="container-fluid p-0">
       <div className="container position-relative" style={{ zIndex: "2" }}>
-        <div className="position-absolute" style={{ marginTop: 80 }}>
-          <div className="mt-5 pt-3"></div>
+        <div
+          className="position-absolute d-flex flex-column justify-content-around vh-100"
+          style={{ marginTop: 80 }}
+        >
           {!isMovie && (
             <div className="row mw-100 mt-0 my-sm-5 py-sm-2">
               <div className="col-10">
@@ -39,39 +41,43 @@ export default function Hero1({
               </div>
             </div>
           )}
-
-          <h1 className="mt-5 pt-0 pt-sm-5 text-light">{heroSection.title}</h1>
-          <div className="col-11 col-sm-8 mt-4">
-            <ReadMore>{heroSection.plot}</ReadMore>
-          </div>
-          <div className="my-4 container-fluid">
-            <div className="row">
-              <div className="col-6 offset-sm-0 col-sm-4 col-lg-3 my-4 my-sm-0">
-                {heroSection.youtubeTrailer !== "" && (
-                  <ButtonPlayYoutube data={heroSection} />
-                )}
-              </div>
-              <div className="col-6 offset-sm-0 col-sm-4 col-lg-3 my-4 my-sm-0">
-                {isDetails ? (
-                  <Button
-                    className="btn button-secondary"
-                    onClick={showDetailsMovie}
-                  >
-                    Read More
-                  </Button>
-                ) : (
-                  <Button
-                    className="btn button-secondary"
-                    isBlock
-                    href={`/movie/${heroSection.id}`}
-                    onClick={() => handleInfoDetails(heroSection.id)}
-                  >
-                    <BsInfoCircle style={{ color: "white" }} />
-                    <span>{"  Info Details"}</span>
-                  </Button>
-                )}
+          <div className="mb-5 pb-5">
+            <h1 className="mt-5 pt-0 pt-sm-5 text-light">
+              {heroSection.title}
+            </h1>
+            <div className="col-11 col-sm-8 mt-4">
+              <ReadMore>{heroSection.plot}</ReadMore>
+            </div>
+            <div className="my-4 container-fluid">
+              <div className="row">
+                <div className="col-6 offset-sm-0 col-sm-4 col-lg-3 my-4 my-sm-0">
+                  {heroSection.youtubeTrailer !== "" && (
+                    <ButtonPlayYoutube data={heroSection} />
+                  )}
+                </div>
+                <div className="col-6 offset-sm-0 col-sm-4 col-lg-3 my-4 my-sm-0">
+                  {isDetails ? (
+                    <Button
+                      className="btn button-secondary"
+                      onClick={showDetailsMovie}
+                    >
+                      Read More
+                    </Button>
+                  ) : (
+                    <Button
+                      className="btn button-secondary"
+                      isBlock
+                      href={`/movie/${heroSection.id}`}
+                      onClick={() => handleInfoDetails(heroSection.id)}
+                    >
+                      <BsInfoCircle style={{ color: "white" }} />
+                      <span>{"  Info Details"}</span>
+                    </Button>
+                  )}
+                </div>
               </div>
             </div>
+            <div className="mb-sm-5 pb-sm-5"></div>
           </div>
         </div>
       </div>
