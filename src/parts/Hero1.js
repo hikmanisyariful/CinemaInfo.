@@ -26,14 +26,14 @@ export default function Hero1({
   };
 
   return (
-    <div className="container-fluid p-0">
-      <div className="container position-relative" style={{ zIndex: "2" }}>
+    <div className="container-fluid p-0 ">
+      <div className="container position-relative " style={{ zIndex: "2" }}>
         <div
           className="position-absolute d-flex flex-column justify-content-around vh-100"
           style={{ marginTop: 80 }}
         >
           {!isMovie && (
-            <div className="row mw-100 mt-0 my-sm-5 py-sm-2">
+            <div className="row mw-100 mt-1 my-sm-5 py-sm-2">
               <div className="col-10">
                 <span className="bg-light text-black p-2 rounded hero-font-size-1">
                   Watch now in Your Cinema
