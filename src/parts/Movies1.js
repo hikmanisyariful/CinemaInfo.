@@ -12,6 +12,7 @@ import Button from "elements/Button";
 
 export default function Movies({ movies, label, isSearch }) {
   const [width, setWidth] = useState(window.innerWidth);
+  const [slidePerView, setSlidePerView] = useState(6);
 
   const updateDimensions = () => {
     setWidth(window.innerWidth);
@@ -23,7 +24,17 @@ export default function Movies({ movies, label, isSearch }) {
   }, []);
 
   useEffect(() => {
-    console.log(width);
+    if (width < 576) {
+      setSlidePerView(2);
+    } else if (width < 768) {
+      setSlidePerView(3);
+    } else if (width < 992) {
+      setSlidePerView(4);
+    } else if (width < 1200) {
+      setSlidePerView(5);
+    } else {
+      setSlidePerView(6);
+    }
   }, [width]);
 
   return (
@@ -36,9 +47,9 @@ export default function Movies({ movies, label, isSearch }) {
 
       <Swiper
         className="row"
-        slidesPerView={6}
-        spaceBetween={30}
-        slidesPerGroup={6}
+        slidesPerView={slidePerView}
+        spaceBetween={24}
+        slidesPerGroup={2}
         loopFillGroupWithBlank={true}
         navigation={true}
         freeMode={true}
@@ -47,10 +58,7 @@ export default function Movies({ movies, label, isSearch }) {
       >
         {movies.map((movie, index) => {
           return (
-            <SwiperSlide
-              className="col-2"
-              key={`trending-${movie.id}-${index}`}
-            >
+            <SwiperSlide className="" key={`trending-${movie.id}-${index}`}>
               <div
                 className="card d-block justify-content-center card-movie"
                 style={{ background: "none" }}
@@ -60,6 +68,7 @@ export default function Movies({ movies, label, isSearch }) {
                   style={{ width: "100%" }}
                 >
                   <img
+                    // src="https://imdb-api.com/images/original/MV5BNmQxZDNjYjUtZGU5MC00ZTI0LWIyMTAtMmJjODJiNjQzODkzXkEyXkFqcGdeQXVyMTEzMTI1Mjk3._V1_Ratio0.7273_AL_.jpg"
                     src={movie.image}
                     alt={movie.title}
                     style={{
