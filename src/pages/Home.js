@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 
 // import Hero from "../parts/Hero";
-import Hero from "parts/Hero1";
+import Hero from "parts/Hero";
 import Movies from "parts/Movies";
 import Footer from "parts/Footer";
 import LoadingCard from "parts/LoadingCard";

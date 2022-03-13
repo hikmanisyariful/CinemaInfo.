@@ -8,7 +8,7 @@ import { handleGetDataMovie } from "actions/movieIdPages";
 // import { movieIDPage } from "assets/DummyData/movieIdPage";
 
 // import Hero from "parts/Hero";
-import Hero1 from "parts/Hero1";
+import Hero from "parts/Hero";
 import ContentMovie from "parts/ContentMovie";
 import Footer from "parts/Footer";
 import Button from "elements/Button";
@@ -41,7 +41,7 @@ export default function MovieId() {
     if (dataMovie) {
       return (
         <div>
-          <Hero1
+          <Hero
             heroSection={dataMovie}
             isMovie
             isDetails
