@@ -49,7 +49,7 @@ export default function Movies({ movies, label, isSearch }) {
         className="row"
         slidesPerView={slidePerView}
         spaceBetween={24}
-        slidesPerGroup={6}
+        slidesPerGroup={2}
         loopFillGroupWithBlank={true}
         navigation={true}
         freeMode={true}
