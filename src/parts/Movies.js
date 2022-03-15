@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/scss";
@@ -9,10 +10,12 @@ import { Navigation, FreeMode } from "swiper";
 
 import Star from "elements/Star";
 import Button from "elements/Button";
+import Options from "elements/Options";
 
 export default function Movies({ movies, label, isSearch }) {
   const [width, setWidth] = useState(window.innerWidth);
   const [slidePerView, setSlidePerView] = useState(6);
+  const authedUser = useSelector(state => state.users.authedUser);
 
   const updateDimensions = () => {
     setWidth(window.innerWidth);
@@ -22,6 +25,8 @@ export default function Movies({ movies, label, isSearch }) {
     window.addEventListener("resize", updateDimensions);
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
+
+  const handleOptions = event => {};
 
   useEffect(() => {
     if (width < 576) {
@@ -58,7 +63,12 @@ export default function Movies({ movies, label, isSearch }) {
       >
         {movies.map((movie, index) => {
           return (
-            <SwiperSlide className="" key={`trending-${movie.id}-${index}`}>
+            <SwiperSlide
+              className="position-relative"
+              key={`trending-${movie.id}-${index}`}
+            >
+              {authedUser && <Options handleOptions={handleOptions} />}
+
               <div
                 className="card d-block justify-content-center card-movie"
                 style={{ background: "none" }}

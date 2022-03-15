@@ -1,17 +1,12 @@
 import React, { useState } from "react";
 import { BsFillTrashFill } from "react-icons/bs";
 
-export default function Options({ isDelete }) {
-  const [value, setValue] = useState("");
-
-  const handleChange = value => {
-    setValue(value);
-  };
-
-  const handleDelete = event => {
-    alert("DELETE");
-  };
-
+export default function Options({
+  isDelete,
+  handleOptions,
+  handleDelete,
+  value
+}) {
   return (
     <div
       className="position-absolute top-0 end-0 mt-2 me-2 d-flex"
@@ -24,10 +19,7 @@ export default function Options({ isDelete }) {
       )}
 
       <form className="options-shelf-changer">
-        <select
-          value={value}
-          onChange={event => handleChange(event.target.value)}
-        >
+        <select value={value} onChange={handleOptions}>
           <option value="move" disabled>
             Move to...
           </option>
