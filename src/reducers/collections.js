@@ -11,7 +11,10 @@ export default function collections(state = [], action) {
       );
       return renewCollections;
     case UPDATE_MOVIE:
-      let prevMovie = state.find(movie => movie.id === action.movie.id);
+      let prevMovie =
+        state.length > 0
+          ? state.find(movie => movie.id === action.movie.id)
+          : {};
       let updateMovie = Object.assign(prevMovie, action.movie);
       let moviesSelection = state.filter(movie => movie.id !== action.movie.id);
       let updateCollection = moviesSelection.concat([updateMovie]);
