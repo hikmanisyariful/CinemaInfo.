@@ -9,16 +9,16 @@ export function addMovie(movie) {
   };
 }
 
-export function removeMovie(payload) {
+export function removeMovie(movie) {
   return {
     type: REMOVE_MOVIE,
-    payload
+    movie
   };
 }
 
-export function updateMovie(payload) {
+export function updateMovie(movie) {
   return {
     type: UPDATE_MOVIE,
-    payload
+    movie
   };
 }

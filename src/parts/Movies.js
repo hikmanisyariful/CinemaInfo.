@@ -27,8 +27,6 @@ export default function Movies({ movies, label, isSearch }) {
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
 
-  const handleOptions = event => {};
-
   useEffect(() => {
     if (width < 576) {
       setSlidePerView(2);
@@ -68,8 +66,9 @@ export default function Movies({ movies, label, isSearch }) {
               className="position-relative"
               key={`trending-${movie.id}-${index}`}
             >
-              {/* {authedUser && <Options handleOptions={handleOptions} isDelete />} */}
-              <ModalAdd movie={movie} />
+              {/* {authedUser && <Options movie={movie} />} */}
+              {/* <ModalAdd movie={movie} /> */}
+              <Options movie={movie} />
 
               <div
                 className="card d-block justify-content-center card-movie"
