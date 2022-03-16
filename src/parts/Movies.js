@@ -11,6 +11,7 @@ import { Navigation, FreeMode } from "swiper";
 import Star from "elements/Star";
 import Button from "elements/Button";
 import Options from "elements/Options";
+import ModalAdd from "elements/ModalAdd";
 
 export default function Movies({ movies, label, isSearch }) {
   const [width, setWidth] = useState(window.innerWidth);
@@ -67,7 +68,8 @@ export default function Movies({ movies, label, isSearch }) {
               className="position-relative"
               key={`trending-${movie.id}-${index}`}
             >
-              {authedUser && <Options handleOptions={handleOptions} />}
+              {/* {authedUser && <Options handleOptions={handleOptions} isDelete />} */}
+              <ModalAdd movie={movie} />
 
               <div
                 className="card d-block justify-content-center card-movie"

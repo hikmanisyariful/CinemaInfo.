@@ -2,10 +2,10 @@ export const ADD_MOVIE = "ADD_MOVIE";
 export const REMOVE_MOVIE = "REMOVE_MOVIE";
 export const UPDATE_MOVIE = "UPDATE_MOVIE";
 
-export function addMovie(payload) {
+export function addMovie(movie) {
   return {
     type: ADD_MOVIE,
-    payload
+    movie
   };
 }
 
