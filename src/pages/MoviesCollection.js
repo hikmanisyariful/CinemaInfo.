@@ -8,9 +8,7 @@ export default function MoviesCollection() {
   const params = useParams();
   let type = params.typeCollection;
   const authedUser = useSelector(state => state.users.authedUser);
-  const collections = useSelector(
-    state => state.users.users[authedUser].collections
-  );
+  const collections = useSelector(state => state.collections);
   const [isUpdated, setIsUpdated] = useState(false);
   const [moviesEachType, setMoviesEachType] = useState([]);
 
@@ -18,11 +16,13 @@ export default function MoviesCollection() {
     setIsUpdated(!isUpdated);
     let moviesType =
       type === "all"
-        ? collections
-        : collections.filter(movie => movie.collectionType === type);
+        ? collections.filter(movie => movie.userId === authedUser)
+        : collections
+            .filter(movie => movie.userId === authedUser)
+            .filter(movie => movie.collectionType === type);
 
     setMoviesEachType(moviesType);
-  }, [type]);
+  }, [type, collections]);
 
   // let moviesEachType =
   //   params.typeCollection === "all"

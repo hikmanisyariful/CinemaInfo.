@@ -37,19 +37,6 @@ export default function users(state = initialState, action) {
         ...state,
         authedUser: action.email
       };
-    case ADD_MOVIE:
-      return {
-        ...state,
-        users: {
-          ...state.users,
-          [action.movie.userId]: {
-            ...state.users[action.movie.userId],
-            collections: state.users[action.movie.userId].collections.concat([
-              action.movie
-            ])
-          }
-        }
-      };
     default:
       return state;
   }
