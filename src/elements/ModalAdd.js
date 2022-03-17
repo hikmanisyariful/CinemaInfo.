@@ -11,8 +11,10 @@ export default function ModalAdd({ movie }) {
   const [show, setShow] = useState(false);
   const [value, setValue] = useState("liked");
   const dispatch = useDispatch();
-  const collections = useSelector(state => state.collections);
   const authedUser = useSelector(state => state.users.authedUser);
+  const collections = useSelector(
+    state => state.users.users[authedUser].collections
+  );
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -26,16 +28,16 @@ export default function ModalAdd({ movie }) {
 
     const isExist =
       collections.length > 0
-        ? collections
-            .filter(item => item.userId === authedUser)
-            .find(item => item.id === movie.id)
+        ? collections.find(item => item.id === movie.id)
         : undefined;
 
     if (!isExist) {
-      const movieObj = Object.assign(movie, {
+      // Don't use Object.assign(). Use spread operator.
+      const movieObj = {
+        ...movie,
         collectionType: value,
         userId: authedUser
-      });
+      };
       dispatch(addMovie(movieObj));
     } else {
       alert("Movie has been added to collection!");
@@ -59,6 +61,7 @@ export default function ModalAdd({ movie }) {
         backdrop="static"
         keyboard={false}
         centered
+        className="rounded-3"
       >
         <Modal.Header closeButton>
           <Modal.Title className="text-light fs-5 fw-bolder">

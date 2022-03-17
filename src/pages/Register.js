@@ -14,7 +14,8 @@ export default function Register() {
     firstName: "",
     lastName: "",
     email: "",
-    password: ""
+    password: "",
+    collections: []
   });
 
   const handleChange = event => {

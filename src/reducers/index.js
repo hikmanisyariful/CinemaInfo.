@@ -6,7 +6,6 @@ import searchPage from "./searchPage";
 import topMoviesPage from "./topMoviesPage";
 import topSeriesPage from "./topSeriesPage";
 import users from "./users";
-import collections from "./collections";
 
 export default combineReducers({
   homePages,
@@ -15,6 +14,5 @@ export default combineReducers({
   searchPage,
   topMoviesPage,
   topSeriesPage,
-  users,
-  collections
+  users
 });

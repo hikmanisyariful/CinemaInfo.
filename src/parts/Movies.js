@@ -10,7 +10,6 @@ import { Navigation, FreeMode } from "swiper";
 
 import Star from "elements/Star";
 import Button from "elements/Button";
-// import Options from "elements/Options";
 import ModalAdd from "elements/ModalAdd";
 
 export default function Movies({ movies, label, isSearch }) {
@@ -67,8 +66,6 @@ export default function Movies({ movies, label, isSearch }) {
               key={`trending-${movie.id}-${index}`}
             >
               {authedUser && <ModalAdd movie={movie} />}
-              {/* <ModalAdd movie={movie} /> */}
-              {/* <Options movie={movie} /> */}
 
               <div
                 className="card d-block justify-content-center card-movie"
