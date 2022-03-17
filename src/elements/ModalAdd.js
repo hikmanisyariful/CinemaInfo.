@@ -12,6 +12,7 @@ export default function ModalAdd({ movie }) {
   const [value, setValue] = useState("liked");
   const dispatch = useDispatch();
   const collections = useSelector(state => state.collections);
+  const authedUser = useSelector(state => state.users.authedUser);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -25,11 +26,16 @@ export default function ModalAdd({ movie }) {
 
     const isExist =
       collections.length > 0
-        ? collections.find(item => item.id === movie.id)
+        ? collections
+            .filter(item => item.userId === authedUser)
+            .find(item => item.id === movie.id)
         : undefined;
 
     if (!isExist) {
-      const movieObj = Object.assign(movie, { collectionType: value });
+      const movieObj = Object.assign(movie, {
+        collectionType: value,
+        userId: authedUser
+      });
       dispatch(addMovie(movieObj));
     } else {
       alert("Movie has been added to collection!");

@@ -1,7 +1,11 @@
 import React from "react";
 import Button from "elements/Button";
+import ModalAdd from "elements/ModalAdd";
+import { useSelector } from "react-redux";
 
 export default function MoviesSearch({ currentItems }) {
+  const authedUser = useSelector(state => state.users.authedUser);
+
   return (
     <div className="container">
       <div className="row">
@@ -16,6 +20,8 @@ export default function MoviesSearch({ currentItems }) {
                   className="card d-block justify-content-center card-movie"
                   style={{ background: "none" }}
                 >
+                  {authedUser && <ModalAdd movie={movie} />}
+
                   <div
                     className="d-flex flex-column justify-content-center align-items-center"
                     style={{ width: "100%" }}

@@ -19,6 +19,8 @@ import MovieId from "pages/MovieId";
 import NameId from "pages/NameId";
 import Login from "pages/Login";
 import Register from "pages/Register";
+import Collection from "pages/Collection";
+import MoviesCollection from "pages/MoviesCollection";
 
 // Import Component parts
 import Header from "parts/Header";
@@ -55,6 +57,9 @@ function App() {
 
         {/* Private route is not handle yet. */}
         <Route path="/profile" element={<Profile />} />
+        <Route path="/collection" element={<Collection />}>
+          <Route path=":typeCollection" element={<MoviesCollection />} />
+        </Route>
 
         <Route
           path="*"

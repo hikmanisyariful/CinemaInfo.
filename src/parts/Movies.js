@@ -10,7 +10,7 @@ import { Navigation, FreeMode } from "swiper";
 
 import Star from "elements/Star";
 import Button from "elements/Button";
-import Options from "elements/Options";
+// import Options from "elements/Options";
 import ModalAdd from "elements/ModalAdd";
 
 export default function Movies({ movies, label, isSearch }) {
@@ -30,7 +30,7 @@ export default function Movies({ movies, label, isSearch }) {
   useEffect(() => {
     if (width < 576) {
       setSlidePerView(2);
-    } else if (width < 768) {
+    } else if (width <= 768) {
       setSlidePerView(3);
     } else if (width < 992) {
       setSlidePerView(4);
@@ -66,9 +66,9 @@ export default function Movies({ movies, label, isSearch }) {
               className="position-relative"
               key={`trending-${movie.id}-${index}`}
             >
-              {/* {authedUser && <Options movie={movie} />} */}
+              {authedUser && <ModalAdd movie={movie} />}
               {/* <ModalAdd movie={movie} /> */}
-              <Options movie={movie} />
+              {/* <Options movie={movie} /> */}
 
               <div
                 className="card d-block justify-content-center card-movie"
