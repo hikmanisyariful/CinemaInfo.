@@ -4,7 +4,11 @@ import { useDispatch } from "react-redux";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
-import { BiMoviePlay } from "react-icons/bi";
+import { VscRunAll } from "react-icons/vsc";
+import { FcLike } from "react-icons/fc";
+import { AiFillStar } from "react-icons/ai";
+import { ImPlay } from "react-icons/im";
+import { MdMovie } from "react-icons/md";
 
 import { updateMovie, removeMovie } from "actions/collections";
 
@@ -28,6 +32,31 @@ export default function Options({ movie }) {
     e.preventDefault();
     dispatch(removeMovie(movie));
     setShow(false);
+  };
+
+  const IconTypeRender = type => {
+    if (type === "all") {
+      return (
+        <VscRunAll className="text-light" style={{ width: 40, height: 40 }} />
+      );
+    } else if (type === "liked") {
+      return (
+        <FcLike className="text-danger" style={{ width: 40, height: 40 }} />
+      );
+    } else if (type === "favorite") {
+      return (
+        <AiFillStar
+          className="text-warning"
+          style={{ width: 40, height: 40 }}
+        />
+      );
+    } else if (type === "wantToWatch") {
+      return <ImPlay className="text-info" style={{ width: 40, height: 40 }} />;
+    } else if (type === "watched") {
+      return (
+        <MdMovie className="text-success" style={{ width: 40, height: 40 }} />
+      );
+    }
   };
 
   return (
@@ -79,16 +108,10 @@ export default function Options({ movie }) {
               </p>
               <p className="text-dark">
                 Category:{" "}
-                <span className="text-warning">
-                  {/* {movie.collectionType} */}
-                  Favorite
-                </span>
+                <span className="text-warning">{movie.collectionType}</span>
               </p>
               <div className="d-flex justify-content-end">
-                <BiMoviePlay
-                  className="text-warning"
-                  style={{ width: 40, height: 40 }}
-                />
+                {IconTypeRender(movie.collectionType)}
               </div>
             </div>
 

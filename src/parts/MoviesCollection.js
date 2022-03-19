@@ -10,10 +10,10 @@ export default function MoviesCollection({ currentItems }) {
     <div className="container">
       <div className="row">
         {currentItems &&
-          currentItems.map((movie, index) => {
+          currentItems.reverse().map((movie, index) => {
             return (
               <div
-                className="col-2 mt-4 "
+                className="col-2 mt-4"
                 key={`Search-movie-${index}-${movie.id}`}
               >
                 <div
