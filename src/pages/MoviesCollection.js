@@ -11,6 +11,11 @@ export default function MoviesCollection() {
   const collections = useSelector(state => state.collections);
   const [isUpdated, setIsUpdated] = useState(false);
   const [moviesEachType, setMoviesEachType] = useState([]);
+  const [search, setSearch] = useState("");
+
+  const handleSearch = e => {
+    setSearch(e.target.value);
+  };
 
   useEffect(() => {
     setIsUpdated(!isUpdated);
@@ -21,8 +26,15 @@ export default function MoviesCollection() {
             .filter(movie => movie.userId === authedUser)
             .filter(movie => movie.collectionType === type);
 
-    setMoviesEachType(moviesType);
-  }, [type, collections]);
+    let moviesIsShow =
+      search !== ""
+        ? moviesType.filter(item =>
+            item.title.toLowerCase().startsWith(search.toLowerCase())
+          )
+        : moviesType;
+
+    setMoviesEachType(moviesIsShow);
+  }, [type, collections, search]);
 
   return (
     <div>
@@ -31,7 +43,18 @@ export default function MoviesCollection() {
           <h1 className="font-audiow">{params.typeCollection}</h1>
         </div>
 
-        <div className="col-auto">Search</div>
+        <div className="col-4 mb-2">
+          <form className="w-100">
+            <input
+              className="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              value={search}
+              onChange={handleSearch}
+            />
+          </form>
+        </div>
       </div>
       <PaginateCollection
         itemsPerPage={12}
