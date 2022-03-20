@@ -3,6 +3,7 @@ import SubContentInfo from "parts/SubContentInfo";
 import AvatarNames from "parts/AvatarNames";
 import LabelCategories from "parts/LabelCategories";
 import Pictures from "parts/Pictures";
+import Star from "elements/Star";
 
 export default function ContentMovie({ data, refDetailsMovie, paramsMovieId }) {
   const actorList =
@@ -23,11 +24,39 @@ export default function ContentMovie({ data, refDetailsMovie, paramsMovieId }) {
 
   return (
     <div className="container mb-5" ref={refDetailsMovie}>
+      <div className="row mb-2">
+        <div className="col-auto text-success ">{suitable(data.rating)}</div>
+        <div className="col-auto text-dark">{data.year}</div>
+        {data.contentRating && (
+          <div className="col-auto text-dark">{data.contentRating}</div>
+        )}
+
+        <div className="col-auto text-dark">{data.duration}</div>
+      </div>
+
+      <div className="row mb-5">
+        <div className="col">
+          <Star
+            value={Number(data.rating / 2)}
+            width={20}
+            height={20}
+            spacing={4}
+          />
+        </div>
+      </div>
+
+      <div className="row mb-5">
+        <div className="col">
+          <h3 className="h3 text-light mb-5">Sinopsis</h3>
+          <div className="col-11">
+            <p className="text-dark">{data.plot}</p>
+          </div>
+        </div>
+      </div>
+
       <div className="row">
-        {/* Column Left */}
-        <SubContentInfo data={data} />
-        {/* Column Right */}
-        <div className="col-4" style={{ height: "100%" }}>
+        {/* Column Casts */}
+        <div className="col-12 col-lg-4 order-lg-1" style={{ height: "100%" }}>
           <AvatarNames
             data={actorList}
             label={"Casts"}
@@ -45,7 +74,15 @@ export default function ContentMovie({ data, refDetailsMovie, paramsMovieId }) {
 
           <Pictures data={data} />
         </div>
+
+        {/* Column Sinopsis */}
+        <SubContentInfo className="col-12 col-lg-8" data={data} />
       </div>
     </div>
   );
+}
+
+function suitable(rating) {
+  const percentage = Number(rating) * 10;
+  return `${percentage}% suitable`;
 }

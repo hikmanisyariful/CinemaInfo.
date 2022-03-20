@@ -11,14 +11,14 @@ export default function AvatarNames({ data, label, paramsMovieId }) {
   };
 
   return (
-    <div className="row mb-5">
+    <div className="row mb-2 mb-lg-5">
       <div className="h4 mb-4">{label}</div>
 
       <div className="row">
         {data.map((actor, index) => {
           return (
             <div
-              className="col-4 mb-4 d-flex flex-column align-items-center position-relative"
+              className="col-4 col-sm-2 col-lg-4 mb-1 mb-lg-4 d-flex flex-column align-items-center position-relative"
               key={`actor-${actor.id}-${index}`}
             >
               <img

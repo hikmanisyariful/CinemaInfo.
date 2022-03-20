@@ -3,8 +3,8 @@ import Button from "elements/Button";
 
 export default function LabelCategories({ data, label }) {
   return (
-    <div className="row mb-5">
-      <div className="h4 mb-4">{label}</div>
+    <div className="row mb-5 mt-4 mt-lg-0">
+      <div className="h4 mb-1 mb-lg-4">{label}</div>
       <div className="row">
         {data.map((category, index) => {
           return (

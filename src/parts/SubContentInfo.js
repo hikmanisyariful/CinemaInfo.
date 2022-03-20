@@ -5,36 +5,17 @@ import Star from "elements/Star";
 import { CgProfile } from "react-icons/cg";
 import { MdOutlineNotInterested } from "react-icons/md";
 
-export default function SubContentInfo({ data }) {
+export default function SubContentInfo({ data, className }) {
   return (
-    <div className="col-8" style={{ height: "100%" }}>
-      <div className="row mb-2">
-        <div className="col-auto text-success ">{suitable(data.rating)}</div>
-        <div className="col-auto text-dark">{data.year}</div>
-        {data.contentRating && (
-          <div className="col-auto text-dark">{data.contentRating}</div>
-        )}
-
-        <div className="col-auto text-dark">{data.duration}</div>
-      </div>
-      <div className="row mb-5">
-        <div className="col">
-          <Star
-            value={Number(data.rating / 2)}
-            width={20}
-            height={20}
-            spacing={4}
-          />
-        </div>
-      </div>
-      <div className="row mb-5">
+    <div className={className} style={{ height: "100%" }}>
+      {/* <div className="row mb-5">
         <div className="col">
           <h3 className="h3 text-light mb-5">Sinopsis</h3>
           <div className="col-11">
             <p className="text-dark">{data.plot}</p>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="row">
         <div className="col">
           <h3 className="h3 text-light mb-5">Reviews</h3>
@@ -52,11 +33,6 @@ export default function SubContentInfo({ data }) {
       </div>
     </div>
   );
-}
-
-function suitable(rating) {
-  const percentage = Number(rating) * 10;
-  return `${percentage}% suitable`;
 }
 
 const ReadMore = ({ children }) => {
