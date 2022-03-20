@@ -43,7 +43,7 @@ const formatData = (data, youtube, reviews, directors) => {
 
 async function getDataNameById(nameId) {
   const getDataName = await axios.get(
-    `https://imdb-api.com/en/API/Name/k_1y2hx2b3/${nameId}`
+    `https://imdb-api.com/en/API/Name/k_hradeoac/${nameId}`
   );
   const data = getDataName.data;
 
@@ -56,12 +56,12 @@ async function getDataNameById(nameId) {
 
 async function getDataMovie(movieId) {
   const getFullData = await axios.get(
-    `https://imdb-api.com/en/API/Title/k_1y2hx2b3/${movieId}/Images,Trailer,Ratings,Wikipedia,`
+    `https://imdb-api.com/en/API/Title/k_hradeoac/${movieId}/Images,Trailer,Ratings,Wikipedia,`
   );
   const fullDataMovie = getFullData.data;
 
   const getYoutubeData = await axios.get(
-    `https://imdb-api.com/en/API/YouTubeTrailer/k_1y2hx2b3/${movieId}`
+    `https://imdb-api.com/en/API/YouTubeTrailer/k_hradeoac/${movieId}`
   );
   const youtubeData = getYoutubeData.data;
 
@@ -74,7 +74,7 @@ async function getDataMovie(movieId) {
   });
 
   const getReviews = await axios.get(
-    `https://imdb-api.com/en/API/Reviews/k_1y2hx2b3/${movieId}`
+    `https://imdb-api.com/en/API/Reviews/k_hradeoac/${movieId}`
   );
   const reviewsData = getReviews.data.items;
 

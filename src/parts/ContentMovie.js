@@ -45,18 +45,25 @@ export default function ContentMovie({ data, refDetailsMovie, paramsMovieId }) {
         </div>
       </div>
 
-      <div className="row mb-5">
+      {/* <div className="row mb-5">
         <div className="col">
           <h3 className="h3 text-light mb-5">Sinopsis</h3>
           <div className="col-11">
             <p className="text-dark">{data.plot}</p>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div className="row">
+      <div className="container-grid">
+        <div className="item column-8 row-1">
+          <h3 className="h3 text-light mb-5">Sinopsis</h3>
+          <div className="col-11">
+            <p className="text-dark">{data.plot}</p>
+          </div>
+        </div>
+
         {/* Column Casts */}
-        <div className="col-12 col-lg-4 order-lg-1" style={{ height: "100%" }}>
+        <div className="item column-4 row-2" style={{ height: "100%" }}>
           <AvatarNames
             data={actorList}
             label={"Casts"}
@@ -76,7 +83,7 @@ export default function ContentMovie({ data, refDetailsMovie, paramsMovieId }) {
         </div>
 
         {/* Column Sinopsis */}
-        <SubContentInfo className="col-12 col-lg-8" data={data} />
+        <SubContentInfo className="item column-8 row-1" data={data} />
       </div>
     </div>
   );

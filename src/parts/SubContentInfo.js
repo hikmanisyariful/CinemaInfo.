@@ -16,7 +16,7 @@ export default function SubContentInfo({ data, className }) {
           </div>
         </div>
       </div> */}
-      <div className="row">
+      <div className="row mt-5">
         <div className="col">
           <h3 className="h3 text-light mb-5">Reviews</h3>
           {data.reviews && data.reviews.length > 1 ? (
