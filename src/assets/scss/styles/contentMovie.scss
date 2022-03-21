@@ -1,0 +1,30 @@
+.container-content-movie {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: minmax(0, auto);
+  grid-template-areas:
+    "sinopsis sinopsis casts"
+    "reviews reviews casts";
+  row-gap: 24px;
+  grid-auto-flow: dense;
+
+  @media screen and (max-width: $large) {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "sinopsis"
+      "casts"
+      "reviews";
+  }
+
+  #sinopsis {
+    grid-area: sinopsis;
+  }
+
+  #casts {
+    grid-area: casts;
+  }
+
+  #reviews {
+    grid-area: reviews;
+  }
+}

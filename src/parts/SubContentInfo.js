@@ -5,17 +5,9 @@ import Star from "elements/Star";
 import { CgProfile } from "react-icons/cg";
 import { MdOutlineNotInterested } from "react-icons/md";
 
-export default function SubContentInfo({ data, className }) {
+export default function SubContentInfo({ data, className, id }) {
   return (
-    <div className={className} style={{ height: "100%" }}>
-      {/* <div className="row mb-5">
-        <div className="col">
-          <h3 className="h3 text-light mb-5">Sinopsis</h3>
-          <div className="col-11">
-            <p className="text-dark">{data.plot}</p>
-          </div>
-        </div>
-      </div> */}
+    <div id={id} className={className} style={{ height: "100%" }}>
       <div className="row mt-5">
         <div className="col">
           <h3 className="h3 text-light mb-5">Reviews</h3>

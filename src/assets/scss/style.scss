@@ -81,6 +81,7 @@ $extraLarge: 1200px;
 @import "styles/header.scss";
 @import "styles/brandIconText.scss";
 @import "styles/hero.scss";
+@import "styles/contentMovie.scss";
 
 // Style Pages
 .pages-test {
@@ -233,17 +234,12 @@ footer {
   cursor: pointer;
 
   .background-posters {
-    // display: none;
-    width: 100%;
-    height: 100%;
     background: $black;
     opacity: 80%;
   }
 
   &:hover {
     .background-posters {
-      // display: inline;
-
       transition: 1s ease-in-out;
       opacity: 50%;
     }

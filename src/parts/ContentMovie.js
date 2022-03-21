@@ -23,7 +23,7 @@ export default function ContentMovie({ data, refDetailsMovie, paramsMovieId }) {
   });
 
   return (
-    <div className="container mb-5" ref={refDetailsMovie}>
+    <div className="container" ref={refDetailsMovie}>
       <div className="row mb-2">
         <div className="col-auto text-success ">{suitable(data.rating)}</div>
         <div className="col-auto text-dark">{data.year}</div>
@@ -45,17 +45,8 @@ export default function ContentMovie({ data, refDetailsMovie, paramsMovieId }) {
         </div>
       </div>
 
-      {/* <div className="row mb-5">
-        <div className="col">
-          <h3 className="h3 text-light mb-5">Sinopsis</h3>
-          <div className="col-11">
-            <p className="text-dark">{data.plot}</p>
-          </div>
-        </div>
-      </div> */}
-
-      <div className="container-grid">
-        <div className="item column-8 row-1">
+      <div className="container-content-movie">
+        <div id="sinopsis" className="">
           <h3 className="h3 text-light mb-5">Sinopsis</h3>
           <div className="col-11">
             <p className="text-dark">{data.plot}</p>
@@ -63,7 +54,7 @@ export default function ContentMovie({ data, refDetailsMovie, paramsMovieId }) {
         </div>
 
         {/* Column Casts */}
-        <div className="item column-4 row-2" style={{ height: "100%" }}>
+        <div id="casts" className="mx-1" style={{ height: "100%" }}>
           <AvatarNames
             data={actorList}
             label={"Casts"}
@@ -83,7 +74,7 @@ export default function ContentMovie({ data, refDetailsMovie, paramsMovieId }) {
         </div>
 
         {/* Column Sinopsis */}
-        <SubContentInfo className="item column-8 row-1" data={data} />
+        <SubContentInfo id="reviews" className="" data={data} />
       </div>
     </div>
   );

@@ -54,7 +54,7 @@ export default function MovieId() {
             paramsMovieId={params.movieId}
           />
 
-          <div className="row justify-content-center mt-5 mx-0">
+          <div className="row justify-content-center mx-0">
             <div className="col-auto">
               <Button
                 className="btn button-primary bg-warning"
