@@ -28,8 +28,8 @@ export default function MovieId() {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleBackToHome = () => {
-    navigate(`/`);
+  const handleBack = () => {
+    navigate(-1);
   };
 
   const renderMovieId = (movies, movieIdParams) => {
@@ -54,15 +54,15 @@ export default function MovieId() {
             paramsMovieId={params.movieId}
           />
 
-          <div className="row justify-content-center mx-0">
+          <div className="row justify-content-center mx-0 mt-5 mt-lg-0">
             <div className="col-auto">
               <Button
-                className="btn button-primary bg-warning"
+                className="btn button-primary bg-warning px-5"
                 hasShadow
                 href="/"
-                onClick={() => handleBackToHome()}
+                onClick={() => handleBack()}
               >
-                Back to Home
+                Back
               </Button>
             </div>
           </div>

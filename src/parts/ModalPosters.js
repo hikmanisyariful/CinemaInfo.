@@ -58,7 +58,7 @@ export default function Posters({ show, onHide, data }) {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "flex-end",
-                    padding: "0px 100px 20px 100px",
+                    padding: "0px 20px 20px 20px",
 
                     background:
                       "linear-gradient(180deg, rgba(0, 0, 0, 0.1) 0%, #000000 100%)"

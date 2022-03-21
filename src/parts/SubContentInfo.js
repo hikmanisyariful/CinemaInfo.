@@ -60,15 +60,15 @@ const ShowMoreReviews = ({ reviews }) => {
                 key={`avatar-${review.username}-${index}`}
               >
                 <div className="row">
-                  <div className="col-8">
+                  <div className="col-10 col-md-8">
                     <div className="row">
-                      <div className="col-2 d-flex justify-content-center">
+                      <div className="col-3 col-md-2 d-flex justify-content-center">
                         <CgProfile
                           className="text-dark"
                           style={{ width: 70, height: 70 }}
                         />
                       </div>
-                      <div className="col-10">
+                      <div className="col-9 col-md-10">
                         <div className="text-light">{review.username}</div>
                         <div className="text-dark mb-2 fw-lighter">
                           {review.date}
@@ -82,7 +82,7 @@ const ShowMoreReviews = ({ reviews }) => {
                       </div>
                     </div>
                   </div>
-                  <div className="col-11">
+                  <div className="col-12 col-md-11">
                     <div className="text-light">{review.title}</div>
                     <div className="text-dark fw-lighter">
                       {/* {review.content} */}
