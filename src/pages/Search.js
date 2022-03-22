@@ -9,6 +9,34 @@ import Footer from "parts/Footer";
 export default function Search() {
   const searchPage = useSelector(state => state.searchPage);
   const [isUpdated, setIsUpdated] = useState(false);
+  const [classPaginationSize, setClassPaginationSize] = useState("");
+  const [pageRangeDisplayed, setPageRangeDisplayed] = useState(5);
+  const [itemsPerPage, setItemsPerPage] = useState(12);
+
+  /* start Width set up screen */
+  const [width, setWidth] = useState(window.innerWidth);
+
+  const updateDimensions = () => {
+    setWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
+  /* end Width set up screen   */
+
+  useEffect(() => {
+    if (width < 768) {
+      setClassPaginationSize("pagination-sm");
+      setPageRangeDisplayed(2);
+      setItemsPerPage(6);
+    } else {
+      setClassPaginationSize("");
+      setPageRangeDisplayed(5);
+      setItemsPerPage(12);
+    }
+  }, [width]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -29,15 +57,19 @@ export default function Search() {
       <div className="row">
         {searchPage && searchPage.movies ? (
           <PaginatedMovies
-            itemsPerPage={12}
+            itemsPerPage={itemsPerPage}
             items={searchPage.movies}
             isUpdated={isUpdated}
+            classPaginationSize={classPaginationSize}
+            pageRangeDisplayed={pageRangeDisplayed}
           />
         ) : (
           <PaginatedMovies
-            itemsPerPage={12}
+            itemsPerPage={itemsPerPage}
             items={searchPage.defaultMovies}
             isUpdated={isUpdated}
+            classPaginationSize={classPaginationSize}
+            pageRangeDisplayed={pageRangeDisplayed}
           />
         )}
       </div>

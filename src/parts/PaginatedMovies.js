@@ -2,7 +2,13 @@ import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import MoviesSearch from "parts/MoviesSearch";
 
-export default function PaginatedMovies({ itemsPerPage, items, isUpdated }) {
+export default function PaginatedMovies({
+  itemsPerPage,
+  items,
+  isUpdated,
+  classPaginationSize,
+  pageRangeDisplayed
+}) {
   // We start with an empty list of items.
   const [currentItems, setCurrentItems] = useState(null);
   const [pageCount, setPageCount] = useState(0);
@@ -35,7 +41,7 @@ export default function PaginatedMovies({ itemsPerPage, items, isUpdated }) {
       <MoviesSearch currentItems={currentItems} />
       <ReactPaginate
         // containerClassName="pagination"
-        className="pagination justify-content-center mt-5 pt-5"
+        className={`pagination ${classPaginationSize} justify-content-center mt-5 pt-5 `}
         previousClassName="page-item"
         nextClassName="page-item"
         previousLinkClassName="page-link"
@@ -48,7 +54,8 @@ export default function PaginatedMovies({ itemsPerPage, items, isUpdated }) {
         breakLabel="..."
         nextLabel="next >"
         onPageChange={handlePageClick}
-        pageRangeDisplayed={5}
+        pageRangeDisplayed={pageRangeDisplayed}
+        marginPagesDisplayed={1}
         pageCount={pageCount}
         previousLabel="< previous"
         renderOnZeroPageCount={null}
