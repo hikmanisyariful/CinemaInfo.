@@ -25,10 +25,13 @@ export default function PaginatedMovies({ itemsPerPage, items, isUpdated }) {
     //   `User requested page number ${event.selected}, which is offset ${newOffset}`
     // );
     setItemOffset(newOffset);
+
+    // scroll
+    window.scrollTo(0, 120);
   };
 
   return (
-    <div className="row mt-5">
+    <div className="row mt-5 pe-0">
       <MoviesSearch currentItems={currentItems} />
       <ReactPaginate
         // containerClassName="pagination"

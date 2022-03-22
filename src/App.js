@@ -6,12 +6,12 @@ import "assets/scss/style.scss";
 // Import Pages
 import Home from "pages/Home";
 import TopMovies from "pages/TopMovies";
+import TopTvSeries from "pages/TopTvSeries";
 import Movies from "pages/TopMovies/Movies";
 import TvSeries from "pages/TopTvSeries/TvSeries";
 import IndexRouteMovie from "pages/TopMovies/IndexRouteMovie";
 import IndexRouteTvSeries from "pages/TopTvSeries/IndexRouteTvSeries";
 
-import TopTvSeries from "pages/TopTvSeries";
 import About from "pages/About";
 import Search from "pages/Search";
 import Profile from "pages/Profile";

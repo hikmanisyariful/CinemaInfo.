@@ -7,13 +7,13 @@ export default function MoviesSearch({ currentItems }) {
   const authedUser = useSelector(state => state.users.authedUser);
 
   return (
-    <div className="container">
+    <div className="container-fluid">
       <div className="row">
         {currentItems &&
           currentItems.map((movie, index) => {
             return (
               <div
-                className="col-6 col-sm-4 col-md-3 col-lg-2 mt-5"
+                className="col-6 col-sm-4 col-md-3 col-lg-2 mt-5 "
                 key={`Search-movie-${index}-${movie.id}`}
               >
                 <div
