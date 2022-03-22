@@ -1,15 +1,7 @@
 import React from "react";
 import Button from "elements/Button";
-import { useDispatch } from "react-redux";
-import { saveParamsMovieIdCurrent } from "actions/movieIdPages";
 
 export default function AvatarNames({ data, label, paramsMovieId }) {
-  const dispatch = useDispatch();
-
-  const saveParams = () => {
-    dispatch(saveParamsMovieIdCurrent(paramsMovieId));
-  };
-
   return (
     <div className="row mb-2 mb-lg-5">
       <div className="h4 mb-4">{label}</div>
@@ -31,7 +23,6 @@ export default function AvatarNames({ data, label, paramsMovieId }) {
                 className="btn button-link stretched-link p-0 m-0"
                 type="link"
                 href={`/name/${actor.id}`}
-                onClick={() => saveParams()}
               >
                 <p
                   className="text-light text-center lh-1 mb-1"

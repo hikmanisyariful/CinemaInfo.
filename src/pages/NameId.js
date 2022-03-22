@@ -104,7 +104,14 @@ export default function NameId() {
                             <p className="font-size-fs-5 pt-1">{film.year}</p>
                           </div>
                           <div className="col-auto col-md-auto border-start border-dark ps-4 ms-3">
-                            <p className="font-size-fs-5 mb-0">{film.title}</p>
+                            <Button
+                              type="link"
+                              className="btn button-link d-flex justify-content-start font-size-fs-5 ps-0"
+                              href={`/movie/${film.id}`}
+                            >
+                              {film.title}
+                            </Button>
+
                             <p className="text-dark font-size-fs-5 mb-1">
                               Role : {film.role}
                             </p>
