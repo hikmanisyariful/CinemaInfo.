@@ -1,0 +1,25 @@
+$font-size-base-custom: 1rem;
+
+.font-size-fs-3 {
+  font-size: $font-size-base-custom * 1.25;
+
+  @media screen and (min-width: $small) {
+    font-size: $font-size-base-custom * 1.5;
+  }
+
+  @media screen and (min-width: $medium) {
+    font-size: $font-size-base-custom * 1.75;
+  }
+}
+
+.font-size-fs-5 {
+  font-size: $font-size-base-custom;
+
+  @media screen and (min-width: $small) {
+    font-size: $font-size-base-custom;
+  }
+
+  @media screen and (min-width: $medium) {
+    font-size: $font-size-base-custom * 1.25;
+  }
+}
