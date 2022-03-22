@@ -29,9 +29,10 @@ export default function PaginatedMovies({ itemsPerPage, items, isUpdated }) {
 
   return (
     <div className="row mt-5">
+      <MoviesSearch currentItems={currentItems} />
       <ReactPaginate
         // containerClassName="pagination"
-        className="pagination justify-content-center"
+        className="pagination justify-content-center mt-5 pt-5"
         previousClassName="page-item"
         nextClassName="page-item"
         previousLinkClassName="page-link"
@@ -49,8 +50,6 @@ export default function PaginatedMovies({ itemsPerPage, items, isUpdated }) {
         previousLabel="< previous"
         renderOnZeroPageCount={null}
       />
-
-      <MoviesSearch currentItems={currentItems} />
     </div>
   );
 }
