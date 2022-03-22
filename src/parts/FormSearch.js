@@ -37,7 +37,7 @@ export default function FormSearch() {
         <div className="row">
           <div className="col-7 p-0">
             <input
-              className="col-4 form-control"
+              className="form-control"
               type="search"
               placeholder="Search"
               aria-label="Search"
@@ -47,7 +47,7 @@ export default function FormSearch() {
           </div>
           <div className="col-4 p-0">
             <select
-              className="col-4 form-select"
+              className="form-select"
               aria-label="Default select example"
               value={category}
               onChange={handleSelectValue}
