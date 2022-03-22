@@ -35,10 +35,10 @@ export function isUpdatedMovies() {
 
 export async function getMovies() {
   const getMostPopularMovies = await axios.get(
-    `https://imdb-api.com/en/API/MostPopularMovies/k_m8a8f7lf`
+    `https://imdb-api.com/en/API/MostPopularMovies/k_d22q4jgu`
   );
   const getTop250Movies = await axios.get(
-    `https://imdb-api.com/en/API/Top250Movies/k_m8a8f7lf`
+    `https://imdb-api.com/en/API/Top250Movies/k_d22q4jgu`
   );
 
   return {

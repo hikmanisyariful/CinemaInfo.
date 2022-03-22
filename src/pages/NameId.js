@@ -41,7 +41,7 @@ export default function NameId() {
               <div className="col">
                 <div className="row">
                   <div className="col-1"></div>
-                  <div className="col-8">
+                  <div className="col-11 col-lg-8">
                     <span className="text-black fs-3 bg-white p-1 me-1 bg-opacity-75 fw-bolder rounded">
                       {dataName.name},{" "}
                     </span>
