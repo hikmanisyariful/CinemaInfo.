@@ -30,14 +30,14 @@ export default function FormSearch() {
   return (
     <div className="row justify-content-center mb-5">
       <form
-        className="col-4"
+        className="col-10 col-sm-8 col-md-6 col-lg-4"
         style={{ background: "white" }}
         onSubmit={handleSubmitSearch}
       >
         <div className="row">
           <div className="col-7 p-0">
             <input
-              className="col-4 form-control me-2"
+              className="col-4 form-control"
               type="search"
               placeholder="Search"
               aria-label="Search"
