@@ -38,10 +38,10 @@ export default function NameId() {
         <div>
           <div className="container" style={{ marginTop: 150 }}>
             <div className="row">
-              <div className="col">
+              <div className="col offset-lg-1">
+                {/* ROW 1 */}
                 <div className="row">
-                  <div className="col-1"></div>
-                  <div className="col-11 col-lg-8">
+                  <div className="col-8">
                     <span className="text-black fs-3 bg-white p-1 me-1 bg-opacity-75 fw-bolder rounded">
                       {dataName.name},{" "}
                     </span>
@@ -53,8 +53,9 @@ export default function NameId() {
                     </span>
                   </div>
                 </div>
+                {/* ROW 2 */}
                 <div className="row mt-5">
-                  <div className="col-1"></div>
+                  {/* Image */}
                   <div className="col-3">
                     <img
                       className="rounded ps-5 ms-3"
@@ -67,7 +68,8 @@ export default function NameId() {
                       }}
                     />
                   </div>
-                  <div className="col-7 ms-5">
+                  {/* summary */}
+                  <div className="col-8 ms-5">
                     <h2>Summary</h2>
                     <div className="p pe-5 mt-4 lh-lg fs-5 text-danger">
                       {dataName.summary === "" ? (
@@ -82,15 +84,17 @@ export default function NameId() {
                     </div>
                   </div>
                 </div>
+
+                {/* ROW-3 */}
                 <div className="row mt-5">
-                  <div className="col-1"></div>
                   <div className="col-3 mt-5">
                     <h2 className="text-warning">Known For</h2>
                   </div>
                 </div>
+
+                {/* ROW-4 */}
                 <div className="row mt-5">
-                  <div className="col-2"></div>
-                  <div className="col">
+                  <div className="col offset-lg-1">
                     {dataName.knownFor.map((film, index) => {
                       return (
                         <div
@@ -111,6 +115,8 @@ export default function NameId() {
                     })}
                   </div>
                 </div>
+
+                {/* ROW-6 */}
                 <div className="row mt-5 justify-content-center">
                   <div className="col-auto mt-3">
                     <Button
