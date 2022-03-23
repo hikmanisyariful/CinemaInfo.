@@ -14,7 +14,7 @@ export default function TableMostPopular({ currentItems }) {
     navigate(`/movie/${movieId}`);
   };
   return (
-    <>
+    <div className="overflow-auto">
       <table className="table table-hover mt-5 fixed_header">
         <thead>
           <tr>
@@ -139,6 +139,6 @@ export default function TableMostPopular({ currentItems }) {
             })}
         </tbody>
       </table>
-    </>
+    </div>
   );
 }

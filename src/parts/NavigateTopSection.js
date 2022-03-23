@@ -75,10 +75,10 @@ export default function NavigateTopSection({ currentPage }) {
   }, [value]);
 
   return (
-    <div className="row h-100 align-items-end">
-      <div className="col-auto me-5 h-100">
-        <div className="row gx-1">
-          <div className="col-auto">
+    <div className="row d-flex justify-content-between align-items-end">
+      <div className="col-12 col-sm-auto mb-5 mb-sm-0">
+        <div className="row gx-0 gx-sm-1">
+          <div className="col col-sm-auto">
             <NavLink
               className="nav-link fs-4 hover-navlink"
               style={({ isActive }) => {
@@ -92,7 +92,7 @@ export default function NavigateTopSection({ currentPage }) {
               Most Popular
             </NavLink>
           </div>
-          <div className="col-auto">
+          <div className="col col-sm-auto">
             <NavLink
               className="nav-link fs-4 hover-navlink"
               style={({ isActive }) => {
@@ -118,11 +118,15 @@ export default function NavigateTopSection({ currentPage }) {
       )}
 
       {currentPage === "topMovies" && (
-        <div className="col-auto ms-auto text-danger top-title">Movies</div>
+        <div className="col-12 col-sm-auto text-danger text-center top-title">
+          Movies
+        </div>
       )}
 
       {currentPage === "topSeries" && (
-        <div className="col-auto ms-auto text-danger top-title">Tv Series</div>
+        <div className="col-12 col-sm-auto text-danger text-center top-title">
+          Tv Series
+        </div>
       )}
     </div>
   );

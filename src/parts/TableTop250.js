@@ -10,36 +10,20 @@ export default function TableTop250({ currentItems }) {
     navigate(`/movie/${movieId}`);
   };
   return (
-    <>
+    <div className="overflow-auto">
       <table className="table table-hover mt-5 fixed_header">
         <thead>
           <tr>
-            <th
-              scope="col"
-              className="col-2 text-center fs-5 fw-normal"
-              id="rank"
-            >
+            <th className="text-center fs-5 fw-normal" id="rank">
               Rank
             </th>
-            <th
-              scope="col"
-              className="col-3 text-center fs-5 fw-normal"
-              id="poster"
-            >
+            <th className="text-center fs-5 fw-normal" id="poster">
               Poster
             </th>
-            <th
-              scope="col"
-              className="col-4 text-center fs-5 fw-normal"
-              id="desc"
-            >
+            <th className="text-center fs-5 fw-normal" id="desc">
               Description
             </th>
-            <th
-              scope="col"
-              className="col-3 text-center fs-5 fw-normal"
-              id="info"
-            >
+            <th className="text-center fs-5 fw-normal" id="info">
               Info
             </th>
           </tr>
@@ -115,6 +99,6 @@ export default function TableTop250({ currentItems }) {
             })}
         </tbody>
       </table>
-    </>
+    </div>
   );
 }

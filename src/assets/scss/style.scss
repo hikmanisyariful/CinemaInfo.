@@ -266,16 +266,36 @@ footer {
   font-family: "Tourney", cursive;
   font-weight: 200;
   font-size: 144px;
+  width: 100%;
+
+  // @media screen and (max-width: $small) {
+  //   font-size: 92px;
+  // }
 }
 
 .rankUpDown {
   font-family: "Audiowide", cursive;
 }
 
+.image-wrapper-top-table {
+  min-width: "210px";
+  min-height: "272px";
+  object-fit: "cover";
+
+  @media screen and (max-width: $small) {
+    min-width: "105px";
+    min-height: "136px";
+    object-fit: "cover";
+  }
+}
+
 .fixed_header {
+  white-space: nowrap;
+
   thead tr {
     display: grid;
     grid-template-areas: "rank rank poster poster poster desc desc desc desc info info info";
+    grid-gap: 24;
 
     #rank {
       grid-area: rank;
@@ -302,7 +322,7 @@ footer {
   }
 
   tbody {
-    display: block;
+    display: block; // !this is important to keep thead > tr grid
     overflow: auto;
     height: 700px;
     width: 100%;

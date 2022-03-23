@@ -50,7 +50,7 @@ export default function PaginateTableTop250({
       <TableTop250 currentItems={currentItems} />
       <ReactPaginate
         // containerClassName="pagination"
-        className="pagination justify-content-center"
+        className="pagination pagination-sm justify-content-center mt-5"
         previousClassName="page-item"
         nextClassName="page-item"
         previousLinkClassName="page-link"
@@ -64,8 +64,9 @@ export default function PaginateTableTop250({
         nextLabel="next >"
         onPageChange={handlePageClick}
         pageRangeDisplayed={5}
+        marginPagesDisplayed={1}
         pageCount={pageCount}
-        previousLabel="< previous"
+        previousLabel="< prev"
         renderOnZeroPageCount={null}
       />
     </div>

@@ -5,7 +5,7 @@ export default function SelectSort({ value, handleChange, isChecked }) {
   const params = useParams();
 
   return (
-    <div className="col-auto pb-1">
+    <div className="col-auto offset-2 offset-sm-0 col-md-auto mt-5 mt-sm-0 pb-3 order-last">
       <div className="row bg-light rounded">
         <div className="col-auto text-black pt-2">Sort by :</div>
         <div className="col-auto">

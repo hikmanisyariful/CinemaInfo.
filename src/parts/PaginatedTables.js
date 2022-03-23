@@ -45,7 +45,7 @@ export default function PaginatedMovies({
       />
       <ReactPaginate
         // containerClassName="pagination"
-        className="pagination justify-content-center"
+        className="pagination pagination-sm justify-content-center"
         previousClassName="page-item"
         nextClassName="page-item"
         previousLinkClassName="page-link"
@@ -59,6 +59,7 @@ export default function PaginatedMovies({
         nextLabel="next >"
         onPageChange={handlePageClick}
         pageRangeDisplayed={5}
+        marginPagesDisplayed={1}
         pageCount={pageCount}
         previousLabel="< previous"
         renderOnZeroPageCount={null}
