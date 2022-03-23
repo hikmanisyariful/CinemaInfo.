@@ -77,8 +77,8 @@ export default function NavigateTopSection({ currentPage }) {
   return (
     <div className="row d-flex justify-content-between align-items-end">
       <div className="col-12 col-sm-auto mb-5 mb-sm-0">
-        <div className="row gx-0 gx-sm-1">
-          <div className="col col-sm-auto">
+        <div className="row gx-0 gx-sm-1 d-flex justify-content-evenly">
+          <div className="col-auto">
             <NavLink
               className="nav-link fs-4 hover-navlink"
               style={({ isActive }) => {
@@ -92,7 +92,7 @@ export default function NavigateTopSection({ currentPage }) {
               Most Popular
             </NavLink>
           </div>
-          <div className="col col-sm-auto">
+          <div className="col-auto">
             <NavLink
               className="nav-link fs-4 hover-navlink"
               style={({ isActive }) => {
