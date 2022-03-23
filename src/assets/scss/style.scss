@@ -411,3 +411,19 @@ footer {
     text-decoration: underline;
   }
 }
+
+.activated-sidebar {
+  display: inline;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+}
+
+.activated-menubar {
+  display: none;
+
+  @media screen and (max-width: 768px) {
+    display: inline;
+  }
+}

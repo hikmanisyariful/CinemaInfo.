@@ -13,7 +13,7 @@ export default function MoviesCollection({ currentItems }) {
           currentItems.reverse().map((movie, index) => {
             return (
               <div
-                className="col-2 mt-4"
+                className="col-6 col-sm-4 col-md-3 col-lg-2 mt-4"
                 key={`Search-movie-${index}-${movie.id}`}
               >
                 <div

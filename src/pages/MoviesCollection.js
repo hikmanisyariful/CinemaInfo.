@@ -38,12 +38,12 @@ export default function MoviesCollection() {
 
   return (
     <div>
-      <div className="row d-flex justify-content-between align-items-end">
-        <div className="col-auto">
+      <div className="row d-flex justify-content-between align-items-end ">
+        <div className="col-auto activated-sidebar">
           <h1 className="font-audiow">{params.typeCollection}</h1>
         </div>
 
-        <div className="col-4 mb-2">
+        <div className="col-12 col-md-5 col-lg-4 mb-2">
           <form className="w-100">
             <input
               className="form-control me-2"
