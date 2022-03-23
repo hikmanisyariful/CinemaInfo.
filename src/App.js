@@ -31,7 +31,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // dispatch(handleInitialData());
+    dispatch(handleInitialData());
     dispatch(handleDataMoviesSeries());
   }, [dispatch]);
 

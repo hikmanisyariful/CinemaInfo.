@@ -23,18 +23,18 @@ async function getHeroData() {
 
     // GET ID Movie from IMDb
     const getMovieIMDb = await axios.get(
-      `https://imdb-api.com/en/API/SearchMovie/k_kksvvsqn/${topMovie.title}`
+      `https://imdb-api.com/en/API/SearchMovie/k_1y2hx2b3/${topMovie.title}`
     );
     let idMovieIMDb = getMovieIMDb.data.results[0].id;
 
     // GET Data Detail Movie from IMDb
     const dataMovie = await axios.get(
-      `https://imdb-api.com/en/API/Title/k_kksvvsqn/${idMovieIMDb}/Images,Trailer,Ratings,Wikipedia,`
+      `https://imdb-api.com/en/API/Title/k_1y2hx2b3/${idMovieIMDb}/Images,Trailer,Ratings,Wikipedia,`
     );
 
     // GET Data URL Youtube Trailer
     const youtubeTrailer = await axios.get(
-      `https://imdb-api.com/en/API/YouTubeTrailer/k_kksvvsqn/${idMovieIMDb}`
+      `https://imdb-api.com/en/API/YouTubeTrailer/k_1y2hx2b3/${idMovieIMDb}`
     );
 
     const data = {
@@ -61,12 +61,12 @@ async function getHeroData() {
 async function getIdRate(movie) {
   // Get ID Movies
   const id = await axios.get(
-    `https://imdb-api.com/en/API/SearchMovie/k_kksvvsqn/${movie.title}`
+    `https://imdb-api.com/en/API/SearchMovie/k_1y2hx2b3/${movie.title}`
   );
 
   // Get Rating Movies
   const rating = await axios.get(
-    `https://imdb-api.com/en/API/Ratings/k_kksvvsqn/${id.data.results[0].id}`
+    `https://imdb-api.com/en/API/Ratings/k_1y2hx2b3/${id.data.results[0].id}`
   );
 
   let data = {
