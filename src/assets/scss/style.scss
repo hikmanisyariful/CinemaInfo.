@@ -334,11 +334,27 @@ footer {
   color: $yellow;
   font-size: 36px;
   font-weight: 200;
+
+  @media screen and (max-width: $medium) {
+    font-size: 27px;
+  }
+
+  @media screen and (max-width: $small) {
+    font-size: 18px;
+  }
 }
 
 .font-audiow {
   font-family: "Audiowide", cursive;
   font-size: 42px;
+
+  @media screen and (max-width: $medium) {
+    font-size: 32px;
+  }
+
+  @media screen and (max-width: $small) {
+    font-size: 21px;
+  }
 }
 
 // Options

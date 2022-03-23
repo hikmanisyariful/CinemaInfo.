@@ -2,7 +2,7 @@ import React from "react";
 
 export default function IndexRouteMovie() {
   return (
-    <div className="container mt-5" style={{ height: "390px" }}>
+    <div className="container mt-5" style={{ minHeight: "390px" }}>
       <div
         className="row d-flex justify-content-center align-items-center"
         style={{ marginTop: "70px" }}
