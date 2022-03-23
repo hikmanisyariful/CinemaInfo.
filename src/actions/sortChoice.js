@@ -1,7 +1,6 @@
 import {
   updateDataMostPopularMovies,
-  updateDataTop250Movies,
-  isUpdatedMovies
+  updateDataTop250Movies
 } from "actions/topMoviesPage";
 import {
   updateDataMostPopularSeries,
@@ -16,7 +15,6 @@ export function handleSortChoice(data) {
       } else if (data.childRoute === "top250") {
         dispatch(updateDataTop250Movies(data.sortData));
       }
-      dispatch(isUpdatedMovies());
     } else if (data.parentRoute === "topSeries") {
       if (data.childRoute === "mostPopular") {
         dispatch(updateDataMostPopularSeries(data.sortData));

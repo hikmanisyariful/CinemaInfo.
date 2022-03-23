@@ -367,3 +367,11 @@ footer {
 
   cursor: pointer;
 }
+
+.hover-navlink {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

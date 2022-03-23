@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react";
 import {
   useParams,
   useSearchParams,
-  createSearchParams
+  createSearchParams,
+  NavLink
 } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Button from "elements/Button";
 import SelectSort from "parts/SelectSort";
 import { handleSortChoice } from "actions/sortChoice";
 
@@ -28,7 +28,6 @@ export default function NavigateTopSection({ currentPage }) {
 
     let newData =
       dataMovieOrSeries && dataMovieOrSeries.sort((a, b) => a.rank - b.rank);
-    console.log(newData);
     dispatch(
       handleSortChoice({
         childRoute: params.category,
@@ -80,24 +79,32 @@ export default function NavigateTopSection({ currentPage }) {
       <div className="col-auto me-5 h-100">
         <div className="row gx-1">
           <div className="col-auto">
-            <Button
-              className="nav-link fs-4"
-              type="link"
-              href={`/${currentPage}/mostPopular`}
+            <NavLink
+              className="nav-link fs-4 hover-navlink"
+              style={({ isActive }) => {
+                return {
+                  color: isActive ? "#ced4da" : "#6c757d"
+                };
+              }}
+              to={`/${currentPage}/mostPopular`}
               onClick={() => resetSortFeature()}
             >
               Most Popular
-            </Button>
+            </NavLink>
           </div>
           <div className="col-auto">
-            <Button
-              className="nav-link fs-4"
-              type="link"
-              href={`/${currentPage}/top250`}
+            <NavLink
+              className="nav-link fs-4 hover-navlink"
+              style={({ isActive }) => {
+                return {
+                  color: isActive ? "#ced4da" : "#6c757d"
+                };
+              }}
+              to={`/${currentPage}/top250`}
               onClick={() => resetSortFeature()}
             >
               Top 250
-            </Button>
+            </NavLink>
           </div>
         </div>
       </div>

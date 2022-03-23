@@ -57,7 +57,7 @@ export default function PaginatedMovies({
         pageRangeDisplayed={pageRangeDisplayed}
         marginPagesDisplayed={1}
         pageCount={pageCount}
-        previousLabel="< previous"
+        previousLabel="< prev"
         renderOnZeroPageCount={null}
       />
     </div>

@@ -32,7 +32,7 @@ function App() {
 
   useEffect(() => {
     // dispatch(handleInitialData());
-    // dispatch(handleDataMoviesSeries());
+    dispatch(handleDataMoviesSeries());
   }, [dispatch]);
 
   return (

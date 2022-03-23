@@ -27,18 +27,12 @@ export function updateDataTop250Movies(payload) {
   };
 }
 
-export function isUpdatedMovies() {
-  return {
-    type: IS_UPDATED_MOVIES
-  };
-}
-
 export async function getMovies() {
   const getMostPopularMovies = await axios.get(
-    `https://imdb-api.com/en/API/MostPopularMovies/k_d22q4jgu`
+    `https://imdb-api.com/en/API/MostPopularMovies/k_kksvvsqn`
   );
   const getTop250Movies = await axios.get(
-    `https://imdb-api.com/en/API/Top250Movies/k_d22q4jgu`
+    `https://imdb-api.com/en/API/Top250Movies/k_kksvvsqn`
   );
 
   return {

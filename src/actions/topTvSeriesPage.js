@@ -28,10 +28,10 @@ export function updateDataTop250Series(payload) {
 
 export async function getTvSeries() {
   const getMostPopularTvSeries = await axios.get(
-    `https://imdb-api.com/en/API/MostPopularTVs/k_d22q4jgu`
+    `https://imdb-api.com/en/API/MostPopularTVs/k_kksvvsqn`
   );
   const getTop250TvSeries = await axios.get(
-    `https://imdb-api.com/en/API/Top250TVs/k_d22q4jgu`
+    `https://imdb-api.com/en/API/Top250TVs/k_kksvvsqn`
   );
 
   return {
